@@ -1,3 +1,1 @@
-from core.config import Config, get_config
-
-__all__ = ["Config", "get_config"]
+"""Módulo de núcleo da aplicação."""

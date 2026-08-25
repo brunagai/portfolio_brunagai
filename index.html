@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfólio de Bruna Nagai — AI Intern @ Aramis. Agentes de IA, automações e Web3."
+    />
+    <title>Bruna Nagai // Cyber Terminal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <p class="brand">
+        <span class="brand-sigil">BN</span>
+        <span>brunagai<span class="dim">@</span>terminal</span>
+      </p>
+      <p class="sys-status">
+        <span class="pulse"></span>
+        SYS.ONLINE // PORTFOLIO_v1
+      </p>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="eyebrow">./init_session --user brunagai</p>
+        <h1 id="hero-title">
+          AI Intern @ Aramis |
+          <span class="hero-line">Software Developer &amp; Tech Enthusiast</span>
+        </h1>
+        <p class="subhead">
+          Construo agentes de IA, automações de processo e experimentos Web3
+          com código enxuto, determinístico e pronto para produção.
+        </p>
+
+        <aside class="boot-terminal" aria-label="Sequência de boot">
+          <div class="boot-chrome">
+            <div class="traffic" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <p class="terminal-title">boot.sequence</p>
+          </div>
+          <div id="boot-sequence" class="boot-log" aria-live="polite"></div>
+        </aside>
+      </section>
+
+      <section class="terminal" aria-label="Interface de chat">
+        <div class="terminal-chrome">
+          <div class="traffic" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <p class="terminal-title">root@brunagai:~ ./chat --interactive</p>
+          <p class="terminal-hint">O(1) lookup</p>
+        </div>
+
+        <div id="chat-log" class="chat-log" role="log" aria-live="polite">
+          <article class="msg msg-agent">
+            <span class="msg-meta">agente // boot</span>
+            <p>Sessão iniciada. Clique em um comando abaixo para consultar o diretório de respostas.</p>
+          </article>
+        </div>
+
+        <div class="command-bar" aria-live="polite">
+          <span class="prompt-sign" aria-hidden="true">&gt;</span>
+          <p class="command-display">
+            <span id="command-text" class="is-placeholder">Selecione um dos botões...</span>
+            <span class="caret" aria-hidden="true"></span>
+          </p>
+        </div>
+      </section>
+
+      <section class="actions" aria-label="Atalhos rápidos">
+        <p class="actions-label">quick_actions</p>
+        <div class="actions-grid">
+          <button type="button" class="action-btn" data-question="Quem é você?">
+            Quem é você?
+          </button>
+          <button type="button" class="action-btn" data-question="Quais suas stacks?">
+            Quais suas stacks?
+          </button>
+          <button type="button" class="action-btn" data-question="Fale sobre seus projetos">
+            Fale sobre seus projetos
+          </button>
+          <button type="button" class="action-btn" data-question="Como é a experiência na Aramis?">
+            Como é a experiência na Aramis?
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>static build // github pages // no api calls</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -1,4 +1,3 @@
-from agents.regras import decidir_proximo_passo
-from agents.prompts import SYSTEM_PROMPT
+from agents.roteador_agente import RoteadorAgente
 
-__all__ = ["decidir_proximo_passo", "SYSTEM_PROMPT"]
+__all__ = ["RoteadorAgente"]
