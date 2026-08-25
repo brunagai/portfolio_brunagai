@@ -170,6 +170,50 @@ main {
   line-height: 1.7;
 }
 
+.hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 28px;
+  align-items: stretch;
+  margin-top: 32px;
+  text-align: left;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about h2 {
+  margin: 0 0 14px;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.about p {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.code-comment {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--mono);
+  font-size: 0.86rem;
+  color: var(--purple);
+  text-shadow: 0 0 10px rgba(192, 132, 252, 0.45);
+}
+
+.hero-split .boot-terminal {
+  margin: 0;
+  max-width: none;
+}
+
 .boot-terminal {
   margin: 28px auto 0;
   max-width: 640px;
@@ -340,6 +384,13 @@ main {
   color: var(--lime);
 }
 
+.ai-prefix {
+  margin-right: 6px;
+  color: var(--lime);
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(163, 230, 53, 0.45);
+}
+
 .command-bar {
   display: flex;
   align-items: center;
@@ -490,6 +541,10 @@ main {
 
   .hero h1 {
     max-width: none;
+  }
+
+  .hero-split {
+    grid-template-columns: 1fr;
   }
 
   .msg {

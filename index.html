@@ -43,15 +43,31 @@
           com código enxuto, determinístico e pronto para produção.
         </p>
 
-        <aside class="boot-terminal" aria-label="Sequência de boot">
-          <div class="boot-chrome">
-            <div class="traffic" aria-hidden="true">
-              <span></span><span></span><span></span>
+        <div class="hero-split">
+          <section class="about" aria-labelledby="about-title">
+            <h2 id="about-title">Sobre mim</h2>
+            <p>
+              Desenvolvedora em formação (3º semestre de ADS) com foco em criar
+              soluções de alto impacto através de automações e IA na Aramis.
+            </p>
+            <p>
+              Odeia ler textos longos? Eu também. Por isso, estruturei este
+              terminal de acesso rápido. Selecione uma pergunta e conheça minha
+              stack e histórico em tempo real.
+            </p>
+            <code class="code-comment">// executing: fetch_profile.sh</code>
+          </section>
+
+          <aside class="boot-terminal" aria-label="Sequência de boot">
+            <div class="boot-chrome">
+              <div class="traffic" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+              <p class="terminal-title">boot.sequence</p>
             </div>
-            <p class="terminal-title">boot.sequence</p>
-          </div>
-          <div id="boot-sequence" class="boot-log" aria-live="polite"></div>
-        </aside>
+            <div id="boot-sequence" class="boot-log" aria-live="polite"></div>
+          </aside>
+        </div>
       </section>
 
       <section class="terminal" aria-label="Interface de chat">
@@ -65,8 +81,11 @@
 
         <div id="chat-log" class="chat-log" role="log" aria-live="polite">
           <article class="msg msg-agent">
-            <span class="msg-meta">agente // boot</span>
-            <p>Sessão iniciada. Clique em um comando abaixo para consultar o diretório de respostas.</p>
+            <p>
+              <span class="ai-prefix">ai&gt;</span>
+              Inicialização concluída. Olá! Sou o terminal interativo da Bruna.
+              Selecione um dos comandos abaixo e eu trago a resposta na hora.
+            </p>
           </article>
         </div>
 
