@@ -33,31 +33,24 @@
 
     <main>
       <section class="hero" aria-labelledby="hero-title">
-        <p class="eyebrow">./init_session --user brunagai</p>
-        <h1 id="hero-title">
-          AI Intern @ Aramis |
-          <span class="hero-line">Software Developer &amp; Tech Enthusiast</span>
-        </h1>
-        <p class="subhead">
-          Construo agentes de IA, automações de processo e experimentos Web3
-          com código enxuto, determinístico e pronto para produção.
-        </p>
+        <div class="hero-copy">
+          <p class="availability-badge">
+            <span class="availability-dot" aria-hidden="true"></span>
+            DISPONÍVEL PARA NOVOS DESAFIOS
+          </p>
+          <h1 id="hero-title" class="hero-name">Bruna Nagai</h1>
+          <h2 class="hero-role">AI Intern @ Aramis</h2>
+          <p class="hero-desc">
+            Software Developer &amp; Tech Enthusiast. Construo agentes de IA e
+            automações que transformam processos manuais em sistemas inteligentes.
+          </p>
+          <div class="hero-actions">
+            <a class="hero-btn hero-btn-primary" href="#chat">conversar com meu agente</a>
+            <a class="hero-btn hero-btn-secondary" href="#projetos">ver projetos</a>
+          </div>
+        </div>
 
-        <div class="hero-split">
-          <section class="about" aria-labelledby="about-title">
-            <h2 id="about-title">Sobre mim</h2>
-            <p>
-              Desenvolvedora em formação (3º semestre de ADS) com foco em criar
-              soluções de alto impacto através de automações e IA na Aramis.
-            </p>
-            <p>
-              Odeia ler textos longos? Eu também. Por isso, estruturei este
-              terminal de acesso rápido. Selecione uma pergunta e conheça minha
-              stack e histórico em tempo real.
-            </p>
-            <code class="code-comment">// executing: fetch_profile.sh</code>
-          </section>
-
+        <div class="hero-visual">
           <aside class="boot-terminal" aria-label="Sequência de boot">
             <div class="boot-chrome">
               <div class="traffic" aria-hidden="true">
@@ -70,49 +63,207 @@
         </div>
       </section>
 
-      <section class="terminal" aria-label="Interface de chat">
-        <div class="terminal-chrome">
-          <div class="traffic" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </div>
-          <p class="terminal-title">root@brunagai:~ ./chat --interactive</p>
-          <p class="terminal-hint">O(1) lookup</p>
-        </div>
-
-        <div id="chat-log" class="chat-log" role="log" aria-live="polite">
-          <article class="msg msg-agent">
-            <p>
-              <span class="ai-prefix">ai&gt;</span>
-              Inicialização concluída. Olá! Sou o terminal interativo da Bruna.
-              Selecione um dos comandos abaixo e eu trago a resposta na hora.
-            </p>
-          </article>
-        </div>
-
-        <div class="command-bar" aria-live="polite">
-          <span class="prompt-sign" aria-hidden="true">&gt;</span>
-          <p class="command-display">
-            <span id="command-text" class="is-placeholder">Selecione um dos botões...</span>
-            <span class="caret" aria-hidden="true"></span>
+      <section id="chat" class="about-section" aria-labelledby="about-title">
+        <div class="about-copy">
+          <h2 id="about-title">Sobre mim</h2>
+          <p>
+            Desenvolvedora em formação com foco em criar soluções através de
+            automações e IA.
           </p>
+          <p>
+            Odeia ler textos longos? Eu também. Por isso, estruturei este
+            terminal de acesso rápido. Selecione uma pergunta e conheça minha
+            stack e histórico em tempo real.
+          </p>
+          <code class="code-comment">// executing: fetch_profile.sh</code>
+        </div>
+
+        <div class="about-chat">
+          <section class="terminal" aria-label="Interface de chat">
+            <div class="terminal-chrome">
+              <div class="traffic" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+              <p class="terminal-title">root@brunagai:~ ./chat --interactive</p>
+              <p class="terminal-hint">O(1) lookup</p>
+            </div>
+
+            <div id="chat-log" class="chat-log" role="log" aria-live="polite">
+              <article class="msg msg-agent">
+                <p>
+                  <span class="ai-prefix">ai&gt;</span>
+                  Inicialização concluída. Olá! Sou o terminal interativo da Bruna.
+                  Selecione um dos comandos abaixo e eu trago a resposta na hora.
+                </p>
+              </article>
+            </div>
+
+            <div class="command-bar" aria-live="polite">
+              <span class="prompt-sign" aria-hidden="true">&gt;</span>
+              <p class="command-display">
+                <span id="command-text" class="is-placeholder">Selecione um dos botões...</span>
+                <span class="caret" aria-hidden="true"></span>
+              </p>
+            </div>
+
+            <div id="quick-actions" class="actions-grid" aria-label="Atalhos rápidos">
+              <button type="button" class="action-btn" data-question="Quem é você?">
+                Quem é você?
+              </button>
+              <button type="button" class="action-btn" data-question="Quais suas stacks?">
+                Quais suas stacks?
+              </button>
+              <button type="button" class="action-btn" data-question="Fale sobre seus projetos">
+                Fale sobre seus projetos
+              </button>
+              <button type="button" class="action-btn" data-question="Como é a experiência na Aramis?">
+                Como é a experiência na Aramis?
+              </button>
+            </div>
+          </section>
         </div>
       </section>
 
-      <section class="actions" aria-label="Atalhos rápidos">
-        <p class="actions-label">quick_actions</p>
-        <div class="actions-grid">
-          <button type="button" class="action-btn" data-question="Quem é você?">
-            Quem é você?
+      <section id="projetos" class="projects" aria-labelledby="projects-title">
+        <header class="projects-header">
+          <p class="projects-index">02</p>
+          <h2 id="projects-title">Projetos &amp; Hackathons</h2>
+          <p class="projects-comment">// o que eu construí</p>
+        </header>
+
+        <nav class="project-filters" aria-label="Filtro de projetos">
+          <button type="button" class="project-filter is-active" data-category="todos" aria-pressed="true">
+            &gt; cd /todos
           </button>
-          <button type="button" class="action-btn" data-question="Quais suas stacks?">
-            Quais suas stacks?
+          <button type="button" class="project-filter" data-category="web3" aria-pressed="false">
+            &gt; cd /web3
           </button>
-          <button type="button" class="action-btn" data-question="Fale sobre seus projetos">
-            Fale sobre seus projetos
+          <button type="button" class="project-filter" data-category="saas" aria-pressed="false">
+            &gt; cd /saas
           </button>
-          <button type="button" class="action-btn" data-question="Como é a experiência na Aramis?">
-            Como é a experiência na Aramis?
+          <button type="button" class="project-filter" data-category="educacao" aria-pressed="false">
+            &gt; cd /educacao
           </button>
+          <button type="button" class="project-filter" data-category="healthtech" aria-pressed="false">
+            &gt; cd /healthtech
+          </button>
+        </nav>
+
+        <div class="projects-grid" data-filter="todos">
+          <article class="project-card" data-category="web3">
+            <div class="project-card-body">
+              <div class="project-card-head">
+                <h3>Lúmen</h3>
+                <span class="project-pill">WEB3 / SOLANA</span>
+              </div>
+              <p class="project-award">★ 2º lugar — WoHackathon</p>
+              <p class="project-desc">
+                Doações em reais com rastro público na Solana: cada contribuição e
+                cada gasto da instituição ficam rastreáveis, e a cadeia só fecha
+                com nota fiscal.
+              </p>
+            </div>
+            <ul class="project-tags">
+              <li>Solana</li>
+              <li>TypeScript</li>
+              <li>Next.js</li>
+            </ul>
+          </article>
+
+          <article class="project-card" data-category="saas">
+            <div class="project-card-body">
+              <div class="project-card-head">
+                <h3>Tino</h3>
+                <span class="project-pill">CRM / SAAS</span>
+              </div>
+              <p class="project-desc">
+                Assistente de vendas e CRM com pipeline isolado por vendedor e
+                Registro Prático por IA multimodal: áudio, foto e texto na Groq,
+                com fallback em cadeia e dados no Supabase (RLS).
+              </p>
+            </div>
+            <ul class="project-tags">
+              <li>Next.js</li>
+              <li>Supabase</li>
+              <li>Groq</li>
+            </ul>
+          </article>
+
+          <article class="project-card" data-category="saas">
+            <div class="project-card-body">
+              <div class="project-card-head">
+                <h3>DeCasa OS</h3>
+                <span class="project-pill">SAAS / IA</span>
+              </div>
+              <p class="project-desc">
+                Sistema operacional comercial da DeCasa Esquadrias: o WhatsApp
+                vira lead interpretado por IA, entra no Kanban e dispara
+                follow-up, orçamento e painel executivo.
+              </p>
+            </div>
+            <ul class="project-tags">
+              <li>Next.js</li>
+              <li>Prisma</li>
+              <li>PostgreSQL</li>
+            </ul>
+          </article>
+
+          <article class="project-card" data-category="educacao">
+            <div class="project-card-body">
+              <div class="project-card-head">
+                <h3>SatVantage</h3>
+                <span class="project-pill">EDUCAÇÃO / BITCOIN</span>
+              </div>
+              <p class="project-desc">
+                Onboarding educacional de Bitcoin com agentes de IA: mentor,
+                missões e quizzes que ensinam autocustódia e creditam sats na
+                carteira Lightning.
+              </p>
+            </div>
+            <ul class="project-tags">
+              <li>Next.js</li>
+              <li>FastAPI</li>
+              <li>TypeScript</li>
+            </ul>
+          </article>
+
+          <article class="project-card" data-category="healthtech">
+            <div class="project-card-body">
+              <div class="project-card-head">
+                <h3>Clínica Popular</h3>
+                <span class="project-pill">HEALTHTECH / API</span>
+              </div>
+              <p class="project-desc">
+                API REST para clínicas do SUS: prontuário eletrônico,
+                agendamento, fila inteligente e modelos de ML para tempo de
+                espera e risco de falta.
+              </p>
+            </div>
+            <ul class="project-tags">
+              <li>Python</li>
+              <li>FastAPI</li>
+              <li>SQL</li>
+            </ul>
+          </article>
+
+          <article class="project-card" data-category="educacao">
+            <div class="project-card-body">
+              <div class="project-card-head">
+                <h3>BuildXP</h3>
+                <span class="project-pill">EDUCAÇÃO / IA</span>
+              </div>
+              <p class="project-desc">
+                Plataforma de aprendizado para devs: skill cards, chat de ajuda
+                e simulador de entrevista por IA, com backend em ASP.NET Core
+                e C#.
+              </p>
+            </div>
+            <ul class="project-tags">
+              <li>C#</li>
+              <li>ASP.NET Core</li>
+              <li>Groq</li>
+            </ul>
+          </article>
         </div>
       </section>
     </main>

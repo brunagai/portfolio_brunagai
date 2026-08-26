@@ -14,7 +14,7 @@ const FALLBACK =
 
 const PLACEHOLDER = "Selecione um dos botões...";
 const TYPE_DELAY_MS = 42;
-const ENTER_DELAY_MS = 500;
+const TYPING_DELAY_MS = 1500;
 
 const chatLog = document.getElementById("chat-log");
 const commandText = document.getElementById("command-text");
@@ -29,10 +29,14 @@ function lookup(question) {
   return RESPONSES[question.trim().toLowerCase()] ?? FALLBACK;
 }
 
-function wait(ms) {
+function sleep(ms) {
   return new Promise((resolve) => {
     window.setTimeout(resolve, ms);
   });
+}
+
+function scrollChatToBottom() {
+  chatLog.scrollTop = chatLog.scrollHeight;
 }
 
 function setDisplay(text, isPlaceholder) {
@@ -59,7 +63,30 @@ function appendMessage(role, text) {
 
   article.append(meta, body);
   chatLog.appendChild(article);
-  chatLog.scrollTop = chatLog.scrollHeight;
+  scrollChatToBottom();
+}
+
+function appendTypingIndicator() {
+  const article = document.createElement("article");
+  article.className = "msg msg-agent msg-typing";
+  article.setAttribute("aria-label", "Agente digitando");
+
+  const meta = document.createElement("span");
+  meta.className = "msg-meta";
+  meta.textContent = "agente // typing";
+
+  const dots = document.createElement("div");
+  dots.className = "typing-dots";
+  dots.setAttribute("aria-hidden", "true");
+
+  for (let index = 0; index < 3; index += 1) {
+    dots.appendChild(document.createElement("span"));
+  }
+
+  article.append(meta, dots);
+  chatLog.appendChild(article);
+  scrollChatToBottom();
+  return article;
 }
 
 async function typeQuestion(question) {
@@ -72,7 +99,7 @@ async function typeQuestion(question) {
 
   for (const character of question) {
     commandText.textContent += character;
-    await wait(TYPE_DELAY_MS);
+    await sleep(TYPE_DELAY_MS);
   }
 }
 
@@ -84,13 +111,23 @@ async function playQuestion(question) {
   isBusy = true;
   setButtonsDisabled(true);
 
+  let typingBubble = null;
+
   try {
-    await typeQuestion(question);
-    await wait(ENTER_DELAY_MS);
-    setDisplay(PLACEHOLDER, true);
     appendMessage("user", question);
+    typingBubble = appendTypingIndicator();
+
+    await Promise.all([
+      typeQuestion(question),
+      sleep(prefersReducedMotion ? 0 : TYPING_DELAY_MS),
+    ]);
+
+    typingBubble.remove();
+    typingBubble = null;
+    setDisplay(PLACEHOLDER, true);
     appendMessage("agent", lookup(question));
   } finally {
+    typingBubble?.remove();
     isBusy = false;
     setButtonsDisabled(false);
   }
@@ -121,7 +158,7 @@ async function typeInto(element, text) {
 
   for (const character of text) {
     element.textContent += character;
-    await wait(BOOT_TYPE_DELAY_MS);
+    await sleep(BOOT_TYPE_DELAY_MS);
   }
 }
 
@@ -133,26 +170,26 @@ async function runBootSequence() {
   const line1 = appendBootLine();
   await typeInto(line1, "$ Initializing profile...");
 
-  await wait(300);
+  await sleep(300);
   const line2 = appendBootLine();
   await typeInto(line2, "$ Loading stack: Python, SQL, TypeScript, C#");
 
-  await wait(300);
+  await sleep(300);
   const line3 = appendBootLine();
   await typeInto(line3, "$ Connecting AI agents @ Aramis");
 
   for (let index = 0; index < 3; index += 1) {
-    await wait(prefersReducedMotion ? 0 : BOOT_DOT_DELAY_MS);
+    await sleep(prefersReducedMotion ? 0 : BOOT_DOT_DELAY_MS);
     line3.textContent += ".";
   }
 
-  await wait(prefersReducedMotion ? 0 : 500);
+  await sleep(prefersReducedMotion ? 0 : 500);
   const ok = document.createElement("span");
   ok.className = "boot-ok";
   ok.textContent = " OK";
   line3.appendChild(ok);
 
-  await wait(300);
+  await sleep(300);
   const line4 = appendBootLine();
   await typeInto(line4, "$ Hello, world! Bem-vinda ao meu terminal.");
 
@@ -164,3 +201,25 @@ async function runBootSequence() {
 }
 
 runBootSequence();
+
+const projectsGrid = document.querySelector(".projects-grid");
+const filterButtons = document.querySelectorAll(".project-filter");
+let activeFilter = document.querySelector(".project-filter.is-active");
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const category = button.dataset.category;
+    if (!projectsGrid || !category || button === activeFilter) {
+      return;
+    }
+
+    projectsGrid.dataset.filter = category;
+
+    activeFilter?.classList.remove("is-active");
+    activeFilter?.setAttribute("aria-pressed", "false");
+
+    button.classList.add("is-active");
+    button.setAttribute("aria-pressed", "true");
+    activeFilter = button;
+  });
+});
