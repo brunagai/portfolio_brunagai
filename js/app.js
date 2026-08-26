@@ -225,3 +225,68 @@ filterButtons.forEach((button) => {
     });
   });
 });
+
+const SHELL_COMMANDS = {
+  help: "comandos disponíveis:\n  curiosidades - o que faço fora do código\n  comunidades  - espaços que apoio e participo\n  contato      - minhas redes profissionais\n  clear        - limpa o terminal",
+  curiosidades:
+    "Desplugando da IDE, sou fã de anime e mangá (One Piece é um dos favoritos, a determinação do Zoro inspira!). Também gosto muito de conhecer restaurantes, bares, cidades novas!",
+  comunidades:
+    "Apoio fortemente a diversidade na tecnologia. Atuei como mentora de engenharia de prompt para mulheres no Hack da Shiva e colaboro frequentemente com comunidades femininas. Hackathons estão sendo minha diversão nos últimos meses!",
+  contato:
+    "Vamos construir algo juntos?\nLinkedIn: /in/brunagai\nGitHub:   /brunagai",
+};
+
+const zshHistory = document.getElementById("zsh-history");
+const zshInput = document.getElementById("zsh-input");
+const zshWindow = document.querySelector(".zsh-window");
+
+function appendZshLine(text, className) {
+  const line = document.createElement("p");
+  line.className = `zsh-line ${className}`;
+  line.textContent = text;
+  zshHistory.appendChild(line);
+}
+
+function scrollZshToBottom() {
+  zshHistory.scrollTop = zshHistory.scrollHeight;
+}
+
+function runZshCommand(rawValue) {
+  const command = rawValue.toLowerCase().trim();
+  zshInput.value = "";
+
+  if (!command) {
+    return;
+  }
+
+  if (command === "clear") {
+    zshHistory.replaceChildren();
+    return;
+  }
+
+  appendZshLine(`> ${command}`, "zsh-cmd");
+
+  const reply = SHELL_COMMANDS[command];
+  if (reply) {
+    appendZshLine(reply, "zsh-out");
+  } else {
+    appendZshLine(`command not found: ${command}. Digite 'help'.`, "zsh-error");
+  }
+
+  scrollZshToBottom();
+}
+
+if (zshInput && zshHistory) {
+  zshInput.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") {
+      return;
+    }
+
+    event.preventDefault();
+    runZshCommand(zshInput.value);
+  });
+
+  zshWindow?.addEventListener("click", () => {
+    zshInput.focus();
+  });
+}
