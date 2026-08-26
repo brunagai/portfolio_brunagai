@@ -42,5 +42,5 @@ class RoteadorAgente:
 
     def processar_mensagem(self, mensagem: str) -> str:
         """Normaliza o input e devolve a resposta correspondente."""
-        chave = mensagem.strip().lower()
+        chave = mensagem.strip().lower()[:200]
         return self._respostas.get(chave, _FALLBACK)

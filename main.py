@@ -19,7 +19,7 @@ def main() -> None:
 
             resposta = roteador.processar_mensagem(entrada)
             print(f"Agente: {resposta}")
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, EOFError):
         print("\nEncerrando. Até logo.")
 
 

@@ -7,7 +7,7 @@ const I18N_PT = {
     "quais suas habilidades técnicas?":
       "Trabalho com Python, SQL, TypeScript, C#, FastAPI, ASP.NET Core, Next.js e Supabase. Também utilizo ferramentas de IA e automação como Databricks, Groq, Claude, Gemini, Canva, Cursor, Notion e Gamma.",
     "quais seus diferenciais?":
-      "Unifico experiências anteriores com o desenvolvimento ágil de software e inteligência artificial. Tenho vivência prática construindo soluções sob pressão em hackathons e foco sempre em eficiência e visão estratégica para negócios.",
+      "Tenho vivência prática construindo soluções sob pressão em hackathons, fui cofundadora de uma comunidade feminina de hardware e foco sempre em eficiência em conjunto com uma visão estratégica para negócios.",
     "por que te contratar?":
       "Sendo bem sincera: eu gosto de dinheiro... Mas eu também tenho automações eficientes, código limpo, muita curiosidade por resolver problemas reais! Dê uma olhada em meus projetos logo abaixo",
   },
@@ -33,11 +33,15 @@ const I18N_PT = {
       "Apoio muito a diversidade na tecnologia e colaboro com comunidades femininas. Atuei como mentora de engenharia de prompt no Hack da Shiva. Hackathons estão sendo minha diversão nos últimos meses!",
     hire: "Quer trocar uma ideia sobre oportunidades? Meus contatos profissionais e redes estão logo abaixo do terminal!",
   },
-  zshWelcome:
-    '<p class="zsh-line zsh-welcome">bruna@portfolio:~$ sessão iniciada</p>' +
-    '<p class="zsh-line zsh-hint">digite "help" para ver os comandos disponíveis</p>',
-  zshUnknown: (command) =>
-    `command not found: ${command}. Digite 'help'.`,
+  zshWelcome: [
+    { text: "bruna@portfolio:~$ sessão iniciada", className: "zsh-welcome" },
+    {
+      text: 'digite "help" para ver os comandos disponíveis',
+      className: "zsh-hint",
+    },
+  ],
+  zshUnknown: (command) => `command not found: ${command}. Digite 'help'.`,
+  chatError: "Falha ao processar o comando. Tente novamente.",
 };
 
 const I18N_EN = {
@@ -73,11 +77,12 @@ const I18N_EN = {
       "I strongly support diversity in tech and often collaborate with women-in-tech communities. I mentored prompt engineering at Hack da Shiva. Hackathons have been my favorite playground these past months!",
     hire: "Want to talk about opportunities? My professional contacts and socials are right below this terminal!",
   },
-  zshWelcome:
-    '<p class="zsh-line zsh-welcome">bruna@portfolio:~$ session started</p>' +
-    '<p class="zsh-line zsh-hint">type "help" to see available commands</p>',
-  zshUnknown: (command) =>
-    `command not found: ${command}. Type 'help'.`,
+  zshWelcome: [
+    { text: "bruna@portfolio:~$ session started", className: "zsh-welcome" },
+    { text: 'type "help" to see available commands', className: "zsh-hint" },
+  ],
+  zshUnknown: (command) => `command not found: ${command}. Type 'help'.`,
+  chatError: "Failed to process the command. Please try again.",
 };
 
 const I18N = IS_EN ? I18N_EN : I18N_PT;
@@ -87,6 +92,7 @@ const FALLBACK = I18N.fallback;
 const PLACEHOLDER = I18N.placeholder;
 const TYPE_DELAY_MS = 42;
 const TYPING_DELAY_MS = 1500;
+const ZSH_MAX_COMMAND_LENGTH = 80;
 
 const chatLog = document.getElementById("chat-log");
 const commandText = document.getElementById("command-text");
@@ -108,10 +114,18 @@ function sleep(ms) {
 }
 
 function scrollChatToBottom() {
+  if (!chatLog) {
+    return;
+  }
+
   chatLog.scrollTop = chatLog.scrollHeight;
 }
 
 function setDisplay(text, isPlaceholder) {
+  if (!commandText) {
+    return;
+  }
+
   commandText.textContent = text;
   commandText.classList.toggle("is-placeholder", isPlaceholder);
 }
@@ -123,6 +137,10 @@ function setButtonsDisabled(disabled) {
 }
 
 function appendMessage(role, text) {
+  if (!chatLog) {
+    return;
+  }
+
   const article = document.createElement("article");
   article.className = `msg msg-${role}`;
 
@@ -139,6 +157,10 @@ function appendMessage(role, text) {
 }
 
 function appendTypingIndicator() {
+  if (!chatLog) {
+    return null;
+  }
+
   const article = document.createElement("article");
   article.className = "msg msg-agent msg-typing";
   article.setAttribute("aria-label", I18N.typingLabel);
@@ -167,6 +189,10 @@ function appendTypingIndicator() {
 async function typeQuestion(question) {
   setDisplay("", false);
 
+  if (!commandText) {
+    return;
+  }
+
   if (prefersReducedMotion) {
     setDisplay(question, false);
     return;
@@ -179,7 +205,7 @@ async function typeQuestion(question) {
 }
 
 async function playQuestion(question) {
-  if (isBusy || !question) {
+  if (isBusy || !question || !chatLog) {
     return;
   }
 
@@ -197,10 +223,15 @@ async function playQuestion(question) {
       sleep(prefersReducedMotion ? 0 : TYPING_DELAY_MS),
     ]);
 
-    typingBubble.remove();
+    typingBubble?.remove();
     typingBubble = null;
     setDisplay(PLACEHOLDER, true);
     appendMessage("agent", lookup(question));
+  } catch {
+    typingBubble?.remove();
+    typingBubble = null;
+    setDisplay(PLACEHOLDER, true);
+    appendMessage("agent", I18N.chatError);
   } finally {
     typingBubble?.remove();
     isBusy = false;
@@ -228,7 +259,7 @@ function appendBootLine() {
 
   const body = document.createElement("span");
   line.append(prompt, body);
-  BOOT_ROOT.appendChild(line);
+  BOOT_ROOT?.appendChild(line);
   return { line, body };
 }
 
@@ -259,6 +290,10 @@ function appendBootOk(line) {
 }
 
 async function playBootCycle() {
+  if (!BOOT_ROOT) {
+    return;
+  }
+
   BOOT_ROOT.replaceChildren();
 
   const line1 = appendBootLine();
@@ -287,7 +322,12 @@ async function runBootSequence() {
   }
 
   while (true) {
-    await playBootCycle();
+    try {
+      await playBootCycle();
+    } catch {
+      BOOT_ROOT.replaceChildren();
+    }
+
     await sleep(4000);
     BOOT_ROOT.replaceChildren();
     await sleep(1000);
@@ -418,9 +458,11 @@ const zshInput = document.getElementById("zsh-input");
 const zshWindow = document.querySelector(".zsh-window");
 const zshBody = document.querySelector(".zsh-body");
 
-const ZSH_WELCOME_HTML = I18N.zshWelcome;
-
 function appendZshLine(text, className) {
+  if (!zshHistory) {
+    return;
+  }
+
   const line = document.createElement("p");
   line.className = `zsh-line ${className}`;
   line.textContent = text;
@@ -436,21 +478,31 @@ function scrollZshToBottom() {
 }
 
 function restoreZshWelcome() {
-  zshHistory.innerHTML = ZSH_WELCOME_HTML;
+  if (!zshHistory) {
+    return;
+  }
+
+  zshHistory.replaceChildren();
+  I18N.zshWelcome.forEach(({ text, className }) => {
+    appendZshLine(text, className);
+  });
 }
 
 function runZshCommand(rawValue) {
-  const command = rawValue.toLowerCase().trim();
-  zshInput.value = "";
+  const command = rawValue.toLowerCase().trim().slice(0, ZSH_MAX_COMMAND_LENGTH);
+
+  if (zshInput) {
+    zshInput.value = "";
+  }
 
   if (!command) {
-    zshInput.focus();
+    zshInput?.focus();
     return;
   }
 
   if (command === "clear") {
     restoreZshWelcome();
-    zshInput.focus();
+    zshInput?.focus();
     scrollZshToBottom();
     return;
   }
@@ -464,7 +516,9 @@ function runZshCommand(rawValue) {
     appendZshLine(I18N.zshUnknown(command), "zsh-error");
   }
 
-  zshInput.focus();
+  if (zshInput) {
+    zshInput.focus();
+  }
   scrollZshToBottom();
 }
 
