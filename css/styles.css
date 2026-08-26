@@ -66,6 +66,10 @@ body {
   top: 1rem;
 }
 
+#conteudo:focus {
+  outline: none;
+}
+
 h1,
 h2,
 h3 {
@@ -207,6 +211,14 @@ main {
 
 .lang-toggle-link:hover,
 .lang-toggle-link:focus-visible {
+  color: var(--color-primary);
+  opacity: 1;
+}
+
+.lang-toggle-link.lang-toggle-active,
+.lang-toggle-link.lang-toggle-active:visited,
+.lang-toggle-link.lang-toggle-active:hover,
+.lang-toggle-link.lang-toggle-active:focus-visible {
   color: var(--color-primary);
   opacity: 1;
 }
@@ -639,6 +651,53 @@ main {
   color: #ffffff;
   font-family: var(--mono);
   font-size: 0.8rem;
+}
+
+.project-access {
+  margin: 10px 0 0;
+  color: var(--text-secondary);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+
+.project-card-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.project-actions {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-action {
+  padding: 5px 10px;
+  border: 1px solid var(--frame-border);
+  border-radius: 50px;
+  background: transparent;
+  color: #ffffff;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-decoration: none;
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, text-shadow 0.3s ease;
+}
+
+.project-card:hover .project-action,
+.project-card:focus-within .project-action,
+.project-action:hover,
+.project-action:focus-visible {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background: rgba(16, 185, 129, 0.06);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.22);
+  text-shadow: 0 0 6px rgba(16, 185, 129, 0.28);
 }
 
 .project-desc {
@@ -1133,6 +1192,59 @@ main {
   text-transform: uppercase;
 }
 
+a.brand {
+  text-decoration: none;
+}
+
+.error-page {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 5.5rem);
+  padding: 24px 20px 64px;
+}
+
+.error-panel {
+  width: min(560px, 100%);
+  text-align: center;
+}
+
+.error-panel .boot-terminal {
+  margin-bottom: 1.75rem;
+  text-align: left;
+}
+
+.error-log {
+  min-height: 0;
+}
+
+.error-status {
+  color: var(--status-error);
+  font-weight: 600;
+}
+
+.error-code {
+  margin: 0;
+  color: var(--text-heading);
+  font-family: var(--sans);
+  font-size: clamp(2.4rem, 8vw, 3.6rem);
+  letter-spacing: -0.04em;
+}
+
+.error-lead {
+  margin: 12px 0 0;
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
 .social-link {
   display: inline-flex;
   align-items: center;
@@ -1241,9 +1353,15 @@ main {
     font-size: clamp(2.1rem, 11vw, 3.2rem);
   }
 
-  .hero-actions {
+  .hero-actions,
+  .error-actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .project-card-foot {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .msg {

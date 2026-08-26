@@ -51,7 +51,7 @@ const I18N_EN = {
     "what's your stack?":
       "I work with Python, SQL, TypeScript, C#, FastAPI, ASP.NET Core, Next.js, and Supabase. I also use AI and automation tools such as Databricks, Groq, Claude, Gemini, Canva, Cursor, Notion, and Gamma.",
     "what sets you apart?":
-      "I combine prior business experience with agile software development and AI. I have hands-on practice shipping under pressure in hackathons, always with an eye on efficiency and strategic business impact.",
+      "I have hands-on practice building solutions under pressure in hackathons, co-founded a women-in-hardware community, and always combine efficiency with a strategic eye for business.",
     "why hire you?":
       "I'll be honest: I like money... But I also ship efficient automations, clean code, and a lot of curiosity for real-world problems. Check out my projects below.",
   },
@@ -355,15 +355,30 @@ async function runBootSequence() {
 
 runBootSequence();
 
+const skipLink = document.querySelector(".skip-link");
+const mainContent = document.getElementById("conteudo");
+
+if (skipLink && mainContent) {
+  skipLink.addEventListener("click", (event) => {
+    event.preventDefault();
+    mainContent.focus({ preventScroll: false });
+  });
+}
+
 const filterButtons = document.querySelectorAll(".filter-cmd");
 const projectCards = document.querySelectorAll(".project-card");
 
+function setActiveFilter(button) {
+  filterButtons.forEach((cmd) => {
+    const isActive = cmd === button;
+    cmd.classList.toggle("active", isActive);
+    cmd.setAttribute("aria-pressed", String(isActive));
+  });
+}
+
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    filterButtons.forEach((cmd) => {
-      cmd.classList.remove("active");
-    });
-    button.classList.add("active");
+    setActiveFilter(button);
 
     const filter = button.dataset.filter;
 
@@ -373,8 +388,11 @@ filterButtons.forEach((button) => {
         return;
       }
 
-      const stacks = card.dataset.stacks || "";
-      card.style.display = stacks.includes(filter) ? "flex" : "none";
+      const tokens = (card.dataset.stacks || "")
+        .split(",")
+        .map((token) => token.trim())
+        .filter(Boolean);
+      card.style.display = tokens.includes(filter) ? "flex" : "none";
     });
   });
 });

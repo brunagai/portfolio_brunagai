@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 | Bruna Nagai</title>
+    <meta
+      name="description"
+      content="Erro 404: comando ou rota não encontrada no portfólio de Bruna Nagai."
+    />
+    <meta name="robots" content="noindex" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; base-uri 'self'; form-action 'self' mailto: https://wa.me;"
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css?v=47" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-sigil">BN</span>
+        <span>brunagai<span class="dim">@</span>terminal</span>
+      </a>
+      <div class="topbar-end">
+        <p class="sys-status">
+          <span class="pulse"></span>
+          SYS.ERROR // 404_NOT_FOUND
+        </p>
+      </div>
+    </header>
+
+    <main id="conteudo" class="error-page" tabindex="-1">
+      <section class="error-panel" aria-labelledby="error-title">
+        <aside class="boot-terminal" aria-label="Log do erro 404">
+          <div class="boot-chrome">
+            <div class="traffic" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <p class="terminal-title">stderr.log</p>
+          </div>
+          <div class="boot-log error-log">
+            <p class="boot-line">
+              <span class="boot-prompt">$</span> cd ./rota
+            </p>
+            <p class="boot-line">
+              <span class="error-status">404</span> command not found
+            </p>
+            <p class="boot-line">
+              bash: rota: No such file or directory
+            </p>
+            <p class="boot-line">
+              <span class="boot-prompt">$</span> exit
+              <span class="boot-cursor" aria-hidden="true">█</span>
+            </p>
+          </div>
+        </aside>
+
+        <h1 id="error-title" class="error-code">Erro 404</h1>
+        <p class="error-lead">Comando ou rota não encontrada.</p>
+        <p class="error-lead">
+          Essa URL não existe neste terminal. Volte ao início para continuar.
+        </p>
+
+        <div class="error-actions">
+          <a class="hero-btn hero-btn-primary" href="index.html">voltar ao início</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

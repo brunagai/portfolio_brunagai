@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bruna Nagai | AI Intern @ Aramis &amp; Software Developer</title>
+    <title>Bruna Nagai | Software Developer &amp; AI Enthusiast</title>
     <meta
       name="description"
-      content="Bruna Nagai's portfolio — AI Intern @ Aramis and Software Developer. Artificial intelligence, automation, and software engineering."
+      content="Bruna Nagai's portfolio — software developer focused on artificial intelligence, automation, and software engineering."
     />
     <link rel="canonical" href="https://brunagai.github.io/portifolio_brunagai/en.html" />
     <link rel="alternate" hreflang="pt-BR" href="https://brunagai.github.io/portifolio_brunagai/" />
@@ -18,11 +18,11 @@
     <meta property="og:site_name" content="Bruna Nagai" />
     <meta
       property="og:title"
-      content="Bruna Nagai | AI Intern @ Aramis &amp; Software Developer"
+      content="Bruna Nagai | Software Developer &amp; AI Enthusiast"
     />
     <meta
       property="og:description"
-      content="Bruna Nagai's portfolio — AI Intern @ Aramis and Software Developer. Artificial intelligence, automation, and software engineering."
+      content="Bruna Nagai's portfolio — software developer focused on artificial intelligence, automation, and software engineering."
     />
     <meta property="og:url" content="https://brunagai.github.io/portifolio_brunagai/en.html" />
     <meta
@@ -34,11 +34,11 @@
     <meta name="twitter:card" content="summary" />
     <meta
       name="twitter:title"
-      content="Bruna Nagai | AI Intern @ Aramis &amp; Software Developer"
+      content="Bruna Nagai | Software Developer &amp; AI Enthusiast"
     />
     <meta
       name="twitter:description"
-      content="Bruna Nagai's portfolio — AI Intern @ Aramis and Software Developer. Artificial intelligence, automation, and software engineering."
+      content="Bruna Nagai's portfolio — software developer focused on artificial intelligence, automation, and software engineering."
     />
     <meta
       name="twitter:image"
@@ -57,10 +57,10 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css?v=44" />
+    <link rel="stylesheet" href="css/styles.css?v=47" />
   </head>
   <body>
-    <a class="skip-link" href="#chat">Skip to content</a>
+    <a class="skip-link" href="#conteudo">Skip to content</a>
     <div class="bg-grid" aria-hidden="true"></div>
     <div class="bg-glow" aria-hidden="true"></div>
 
@@ -74,15 +74,21 @@
           <span class="pulse"></span>
           SYS.ONLINE // PORTFOLIO_v1
         </p>
-        <p class="lang-toggle" aria-label="Language">
+        <nav class="lang-toggle" aria-label="Language">
           <a class="lang-toggle-link" href="index.html" hreflang="pt-BR" lang="pt-BR">PT</a>
           <span class="lang-toggle-sep" aria-hidden="true">|</span>
-          <span class="lang-toggle-active">EN</span>
-        </p>
+          <a
+            class="lang-toggle-link lang-toggle-active"
+            href="en.html"
+            hreflang="en"
+            lang="en"
+            aria-current="true"
+          >EN</a>
+        </nav>
       </div>
     </header>
 
-    <main>
+    <main id="conteudo" tabindex="-1">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <a class="availability-badge" href="#contato">
@@ -123,7 +129,7 @@
             <p class="projects-comment">// executing: fetch_profile.sh</p>
           </header>
           <p>
-            Software Developer focused on creating high-impact solutions through automation and AI.
+            Software Developer focused on creating solutions through automation and AI.
           </p>
           <p>
             Hate reading long texts? Same here. That's why I built this quick-access terminal.
@@ -186,20 +192,20 @@
         </header>
 
         <nav class="project-filters" aria-label="Project filter">
-          <button type="button" class="filter-cmd active" data-filter="todos">
+          <button type="button" class="filter-cmd active" data-filter="todos" aria-pressed="true">
             &gt; cd /todos
           </button>
-          <button type="button" class="filter-cmd" data-filter="repository">
+          <button type="button" class="filter-cmd" data-filter="repository" aria-pressed="false">
             &gt; cd /repository
           </button>
-          <button type="button" class="filter-cmd" data-filter="live preview">
+          <button type="button" class="filter-cmd" data-filter="live preview" aria-pressed="false">
             &gt; cd /live preview
           </button>
         </nav>
 
         <div class="projects-log-window">
           <div class="projects-grid">
-          <article class="project-card" data-stacks="typescript web3 nextjs repository">
+          <article class="project-card" data-stacks="repository">
             <div class="project-card-body">
               <div class="project-card-head">
                 <h3>
@@ -210,7 +216,7 @@
                     rel="noopener noreferrer"
                   >Lúmen</a>
                 </h3>
-                <span class="project-pill">WEB3 / SOLANA</span>
+                <span class="project-pill">DONATIONS / SOLANA</span>
               </div>
               <p class="project-award">★ 2nd place — WoHackathon</p>
               <p class="project-desc">
@@ -225,58 +231,92 @@
             </ul>
           </article>
 
-          <article class="project-card" data-stacks="typescript ia nextjs live preview">
+          <article class="project-card" data-stacks="repository,live preview">
             <div class="project-card-body">
               <div class="project-card-head">
                 <h3>
                   <a
                     class="project-title-link"
-                    href="https://otino.vercel.app/login"
+                    href="https://github.com/brunagai/tino"
                     target="_blank"
                     rel="noopener noreferrer"
                   >Tino</a>
                 </h3>
                 <span class="project-pill">CRM / SAAS</span>
               </div>
+              <p class="project-access">restricted access // authenticated demo</p>
               <p class="project-desc">
                 Sales assistant and CRM with a per-rep isolated pipeline and an AI multimodal
                 Practical Log: audio, photo, and text on Groq, with chained fallback and data on
                 Supabase (RLS).
               </p>
             </div>
-            <ul class="project-tags">
-              <li>Next.js</li>
-              <li>Supabase</li>
-              <li>Groq</li>
-            </ul>
+            <div class="project-card-foot">
+              <ul class="project-tags">
+                <li>Next.js</li>
+                <li>Supabase</li>
+                <li>Groq</li>
+              </ul>
+              <nav class="project-actions" aria-label="Tino links">
+                <a
+                  class="project-action"
+                  href="https://github.com/brunagai/tino"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >GitHub</a>
+                <a
+                  class="project-action"
+                  href="https://otino.vercel.app/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Authenticated demo</a>
+              </nav>
+            </div>
           </article>
 
-          <article class="project-card" data-stacks="typescript sql nextjs live preview">
+          <article class="project-card" data-stacks="repository,live preview">
             <div class="project-card-body">
               <div class="project-card-head">
                 <h3>
                   <a
                     class="project-title-link"
-                    href="https://decasa-esquadria.vercel.app/login?callbackUrl=%2F"
+                    href="https://github.com/brunagai/decasa-os"
                     target="_blank"
                     rel="noopener noreferrer"
                   >DeCasa OS</a>
                 </h3>
                 <span class="project-pill">SAAS / AI</span>
               </div>
+              <p class="project-access">restricted access // authenticated demo</p>
               <p class="project-desc">
                 Commercial operating system for DeCasa Esquadrias: WhatsApp becomes an AI-parsed
                 lead, lands on the Kanban, and triggers follow-up, quotes, and an executive dashboard.
               </p>
             </div>
-            <ul class="project-tags">
-              <li>Next.js</li>
-              <li>Prisma</li>
-              <li>PostgreSQL</li>
-            </ul>
+            <div class="project-card-foot">
+              <ul class="project-tags">
+                <li>Next.js</li>
+                <li>Prisma</li>
+                <li>PostgreSQL</li>
+              </ul>
+              <nav class="project-actions" aria-label="DeCasa OS links">
+                <a
+                  class="project-action"
+                  href="https://github.com/brunagai/decasa-os"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >GitHub</a>
+                <a
+                  class="project-action"
+                  href="https://decasa-esquadria.vercel.app/login?callbackUrl=%2F"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Authenticated demo</a>
+              </nav>
+            </div>
           </article>
 
-          <article class="project-card" data-stacks="typescript ia nextjs api live preview">
+          <article class="project-card" data-stacks="live preview">
             <div class="project-card-body">
               <div class="project-card-head">
                 <h3>
@@ -301,7 +341,7 @@
             </ul>
           </article>
 
-          <article class="project-card" data-stacks="python sql ia api repository">
+          <article class="project-card" data-stacks="repository">
             <div class="project-card-body">
               <div class="project-card-head">
                 <h3>
@@ -326,7 +366,7 @@
             </ul>
           </article>
 
-          <article class="project-card" data-stacks="csharp ia live preview">
+          <article class="project-card" data-stacks="live preview">
             <div class="project-card-body">
               <div class="project-card-head">
                 <h3>
@@ -351,7 +391,7 @@
             </ul>
           </article>
 
-          <article class="project-card" data-stacks="python api repository">
+          <article class="project-card" data-stacks="repository">
             <div class="project-card-body">
               <div class="project-card-head">
                 <h3>
@@ -453,6 +493,6 @@
       <p class="footer-note">static build // github pages // no api calls</p>
     </footer>
 
-    <script src="js/app.js?v=18"></script>
+    <script src="js/app.js?v=20"></script>
   </body>
 </html>
