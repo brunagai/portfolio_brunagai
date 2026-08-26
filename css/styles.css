@@ -1,19 +1,23 @@
 :root {
-  --bg: #020617;
-  --bg-elevated: #07111f;
-  --panel: rgba(7, 17, 31, 0.92);
-  --line: rgba(103, 232, 249, 0.22);
-  --text: #e2e8f0;
-  --muted: #94a3b8;
-  --cyan: #22d3ee;
-  --purple: #c084fc;
-  --lime: #a3e635;
+  --color-primary: #7C3AED;
+  --color-primary-hover: #6D28D9;
+  --color-accent: #10B981;
+  --bg-main: #13111C;
+  --bg-surface: #231F30;
+  --bg-surface-hover: #2D273F;
+  --text-primary: #F3F0FF;
+  --text-secondary: #A39FB3;
+  --status-success: #10B981;
+  --status-error: #EF4444;
+  --status-warning: #F59E0B;
+  --status-info: #D946EF;
   --sans: "Sora", "Segoe UI", sans-serif;
   --mono: "IBM Plex Mono", "Cascadia Mono", Consolas, monospace;
   --radius: 18px;
-  --glow-cyan: 0 0 18px rgba(34, 211, 238, 0.35);
-  --glow-purple: 0 0 18px rgba(192, 132, 252, 0.32);
-  --glow-lime: 0 0 18px rgba(163, 230, 53, 0.28);
+  --line: rgba(124, 58, 237, 0.28);
+  --glow-primary: 0 0 18px rgba(124, 58, 237, 0.42);
+  --glow-accent: 0 0 18px rgba(16, 185, 129, 0.35);
+  --glow-info: 0 0 18px rgba(217, 70, 239, 0.32);
 }
 
 *,
@@ -29,9 +33,9 @@ body {
 }
 
 body {
-  color: var(--text);
+  color: var(--text-primary);
   font-family: var(--sans);
-  background: var(--bg);
+  background: var(--bg-main);
   overflow-x: hidden;
 }
 
@@ -56,17 +60,17 @@ body {
 
 .bg-grid {
   background-image:
-    linear-gradient(rgba(34, 211, 238, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(192, 132, 252, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(124, 58, 237, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(217, 70, 239, 0.05) 1px, transparent 1px);
   background-size: 42px 42px;
   mask-image: radial-gradient(ellipse at center, black 35%, transparent 78%);
 }
 
 .bg-glow {
   background:
-    radial-gradient(circle at 12% 8%, rgba(192, 132, 252, 0.16), transparent 32%),
-    radial-gradient(circle at 88% 18%, rgba(34, 211, 238, 0.12), transparent 28%),
-    radial-gradient(circle at 50% 92%, rgba(163, 230, 53, 0.08), transparent 30%);
+    radial-gradient(circle at 12% 8%, rgba(124, 58, 237, 0.2), transparent 32%),
+    radial-gradient(circle at 88% 18%, rgba(217, 70, 239, 0.12), transparent 28%),
+    radial-gradient(circle at 50% 92%, rgba(16, 185, 129, 0.08), transparent 30%);
 }
 
 .topbar,
@@ -88,7 +92,7 @@ main,
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--text-secondary);
 }
 
 .brand {
@@ -96,7 +100,7 @@ main,
   align-items: center;
   gap: 10px;
   margin: 0;
-  color: var(--cyan);
+  color: var(--color-primary);
 }
 
 .brand-sigil {
@@ -104,13 +108,13 @@ main,
   place-items: center;
   width: 28px;
   height: 28px;
-  border: 1px solid var(--cyan);
-  box-shadow: var(--glow-cyan);
+  border: 1px solid var(--color-primary);
+  box-shadow: var(--glow-primary);
   font-weight: 600;
 }
 
 .dim {
-  color: var(--purple);
+  color: var(--color-primary);
 }
 
 .sys-status {
@@ -124,8 +128,8 @@ main,
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--lime);
-  box-shadow: var(--glow-lime);
+  background: var(--color-accent);
+  box-shadow: var(--glow-accent);
   animation: pulse 1.8s ease-in-out infinite;
 }
 
@@ -162,10 +166,10 @@ main {
   gap: 8px;
   margin: 0;
   padding: 6px 14px 6px 10px;
-  border: 1px solid rgba(125, 211, 252, 0.28);
+  border: 1px solid rgba(16, 185, 129, 0.35);
   border-radius: 999px;
-  background: rgba(15, 40, 92, 0.72);
-  color: #7dd3fc;
+  background: var(--bg-surface);
+  color: var(--color-accent);
   font-family: var(--mono);
   font-size: 0.68rem;
   font-weight: 500;
@@ -177,14 +181,14 @@ main {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #38bdf8;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.95), 0 0 18px rgba(56, 189, 248, 0.45);
+  background: var(--status-success);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.95), 0 0 18px rgba(16, 185, 129, 0.45);
   animation: pulse 1.8s ease-in-out infinite;
 }
 
 .hero-name {
   margin: 18px 0 6px;
-  color: #ffffff;
+  color: var(--text-primary);
   font-size: clamp(2.4rem, 6vw, 4.1rem);
   font-weight: 700;
   line-height: 1.05;
@@ -197,7 +201,7 @@ main {
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.03em;
-  background: linear-gradient(90deg, #38bdf8 0%, #818cf8 48%, #c084fc 100%);
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--status-info) 48%, var(--color-accent) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -206,7 +210,7 @@ main {
 .hero-desc {
   margin: 0;
   max-width: 38rem;
-  color: var(--muted);
+  color: var(--text-secondary);
   font-size: 1.02rem;
   line-height: 1.7;
 }
@@ -234,39 +238,40 @@ main {
 }
 
 .hero-btn-primary {
-  border: 1px solid #38bdf8;
-  color: #38bdf8;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
 }
 
 .hero-btn-primary:hover,
 .hero-btn-primary:focus-visible {
-  background: rgba(56, 189, 248, 0.1);
-  box-shadow: 0 0 18px rgba(56, 189, 248, 0.32);
+  background: var(--bg-surface-hover);
+  border-color: var(--color-primary-hover);
+  color: var(--text-primary);
+  box-shadow: var(--glow-primary);
 }
 
 .hero-btn-secondary {
-  border: 1px solid #475569;
-  color: #94a3b8;
+  border: 1px solid var(--bg-surface-hover);
+  color: var(--text-secondary);
 }
 
 .hero-btn-secondary:hover,
 .hero-btn-secondary:focus-visible {
-  border-color: #64748b;
-  color: #cbd5e1;
-  background: rgba(71, 85, 105, 0.16);
+  border-color: var(--color-primary);
+  color: var(--text-primary);
+  background: var(--bg-surface-hover);
 }
 
 .boot-terminal {
   width: 100%;
   margin: 0;
   text-align: left;
-  border: 1px solid rgba(34, 211, 238, 0.28);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--panel);
+  background: var(--bg-surface);
   box-shadow:
-    0 0 0 1px rgba(34, 211, 238, 0.12),
-    0 0 28px rgba(34, 211, 238, 0.22),
-    0 0 64px rgba(56, 189, 248, 0.14);
+    0 0 0 1px rgba(124, 58, 237, 0.16),
+    var(--glow-primary);
   overflow: hidden;
 }
 
@@ -276,11 +281,11 @@ main {
   gap: 12px;
   padding: 10px 16px;
   border-bottom: 1px solid var(--line);
-  background: linear-gradient(90deg, rgba(192, 132, 252, 0.1), rgba(34, 211, 238, 0.06));
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.16), rgba(217, 70, 239, 0.08));
 }
 
 .boot-chrome .terminal-title {
-  color: var(--purple);
+  color: var(--color-primary);
   letter-spacing: 0.12em;
   text-transform: lowercase;
 }
@@ -307,7 +312,7 @@ main {
 
 .about-copy h2 {
   margin: 0 0 16px;
-  color: var(--cyan);
+  color: var(--color-primary);
   font-size: 1.15rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -316,7 +321,7 @@ main {
 
 .about-copy p {
   margin: 0 0 14px;
-  color: var(--muted);
+  color: var(--text-secondary);
   font-family: var(--sans);
   font-size: 1rem;
   line-height: 1.7;
@@ -327,8 +332,8 @@ main {
   margin-top: 6px;
   font-family: var(--mono);
   font-size: 0.86rem;
-  color: var(--purple);
-  text-shadow: 0 0 10px rgba(192, 132, 252, 0.45);
+  color: var(--color-primary);
+  text-shadow: 0 0 10px rgba(124, 58, 237, 0.45);
 }
 
 .about-chat {
@@ -350,7 +355,7 @@ main {
 
 .projects-index {
   margin: 0;
-  color: var(--purple);
+  color: var(--color-primary);
   font-family: var(--mono);
   font-size: 0.82rem;
   font-weight: 600;
@@ -358,13 +363,14 @@ main {
 
 .projects-header h2 {
   margin: 0;
+  color: var(--text-primary);
   font-size: clamp(1.45rem, 3vw, 2rem);
   letter-spacing: -0.03em;
 }
 
 .projects-comment {
   margin: 0;
-  color: #64748b;
+  color: var(--text-secondary);
   font-family: var(--mono);
   font-size: 0.88rem;
 }
@@ -377,40 +383,43 @@ main {
 }
 
 .filter-cmd {
-  padding: 0;
+  padding: 6px 10px;
   border: 0;
-  background: transparent;
-  color: #64748b;
+  border-radius: 8px;
+  background: var(--bg-surface);
+  color: var(--text-secondary);
   font-family: var(--mono);
   font-size: 0.84rem;
   cursor: pointer;
-  transition: color 160ms ease, text-shadow 160ms ease;
+  transition: color 160ms ease, text-shadow 160ms ease, background 160ms ease;
 }
 
 .filter-cmd:hover,
 .filter-cmd:focus-visible {
-  color: var(--cyan);
-  text-shadow: 0 0 12px rgba(34, 211, 238, 0.75);
+  color: var(--color-primary);
+  background: var(--bg-surface-hover);
+  text-shadow: 0 0 12px rgba(124, 58, 237, 0.75);
 }
 
 .filter-cmd.active {
-  color: var(--purple);
-  text-shadow: 0 0 12px rgba(192, 132, 252, 0.8);
+  color: var(--color-primary);
+  background: var(--bg-surface-hover);
+  text-shadow: 0 0 12px rgba(124, 58, 237, 0.8);
 }
 
 .projects-log-window {
   max-height: 460px;
   overflow-y: auto;
   padding: 14px 10px 16px 14px;
-  border: 1px solid rgba(34, 211, 238, 0.18);
+  border: 1px solid var(--line);
   border-radius: 14px;
-  background: rgba(2, 6, 23, 0.55);
+  background: var(--bg-surface);
   box-shadow:
-    inset 0 28px 32px -18px rgba(2, 6, 23, 0.98),
-    inset 0 -28px 32px -18px rgba(2, 6, 23, 0.98),
-    inset 0 0 48px rgba(34, 211, 238, 0.05);
+    inset 0 28px 32px -18px rgba(19, 17, 28, 0.98),
+    inset 0 -28px 32px -18px rgba(19, 17, 28, 0.98),
+    inset 0 0 48px rgba(124, 58, 237, 0.08);
   scrollbar-width: thin;
-  scrollbar-color: #22d3ee #050814;
+  scrollbar-color: var(--color-primary) var(--bg-main);
 }
 
 .projects-log-window::-webkit-scrollbar {
@@ -419,24 +428,24 @@ main {
 
 .projects-log-window::-webkit-scrollbar-track {
   margin: 8px 0;
-  background: #050814;
+  background: var(--bg-main);
   border-radius: 999px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.65);
 }
 
 .projects-log-window::-webkit-scrollbar-thumb {
   border-radius: 999px;
-  background: linear-gradient(180deg, #22d3ee 0%, #c084fc 100%);
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--status-info) 100%);
   box-shadow:
-    0 0 8px rgba(34, 211, 238, 0.85),
-    0 0 16px rgba(192, 132, 252, 0.45);
+    0 0 8px rgba(124, 58, 237, 0.85),
+    0 0 16px rgba(217, 70, 239, 0.45);
 }
 
 .projects-log-window::-webkit-scrollbar-thumb:hover {
-  background: #22d3ee;
+  background: var(--color-primary-hover);
   box-shadow:
-    0 0 10px rgba(34, 211, 238, 1),
-    0 0 18px rgba(34, 211, 238, 0.7);
+    0 0 10px rgba(124, 58, 237, 1),
+    0 0 18px rgba(124, 58, 237, 0.7);
 }
 
 .projects-grid {
@@ -452,17 +461,18 @@ main {
   gap: 1.25rem;
   min-height: 248px;
   padding: 22px 20px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(243, 240, 255, 0.1);
   border-radius: 12px;
-  background: #0a0f1c;
-  box-shadow: 0 14px 28px rgba(34, 211, 238, 0.08);
-  transition: border-color 180ms ease, box-shadow 180ms ease;
+  background: var(--bg-surface);
+  box-shadow: 0 14px 28px rgba(124, 58, 237, 0.1);
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
 .project-card:hover,
 .project-card:focus-within {
-  border-color: rgba(56, 189, 248, 0.42);
-  box-shadow: 0 18px 36px rgba(56, 189, 248, 0.18);
+  background: var(--bg-surface-hover);
+  border-color: var(--color-primary);
+  box-shadow: 0 18px 36px rgba(124, 58, 237, 0.22);
 }
 
 .project-card-head {
@@ -474,6 +484,7 @@ main {
 
 .project-card h3 {
   margin: 0;
+  color: var(--text-primary);
   font-size: 1.15rem;
   letter-spacing: -0.02em;
 }
@@ -482,8 +493,8 @@ main {
   flex-shrink: 0;
   padding: 4px 10px;
   border-radius: 999px;
-  background: #2d1b4d;
-  color: #c084fc;
+  background: var(--bg-surface-hover);
+  color: var(--status-info);
   font-family: var(--mono);
   font-size: 0.62rem;
   font-weight: 500;
@@ -493,14 +504,14 @@ main {
 
 .project-award {
   margin: 10px 0 0;
-  color: #38bdf8;
+  color: var(--color-accent);
   font-family: var(--mono);
   font-size: 0.8rem;
 }
 
 .project-desc {
   margin: 12px 0 0;
-  color: var(--muted);
+  color: var(--text-secondary);
   font-size: 0.92rem;
   line-height: 1.65;
 }
@@ -517,8 +528,8 @@ main {
 .project-tags li {
   padding: 5px 10px;
   border-radius: 8px;
-  background: #121826;
-  color: #cbd5e1;
+  background: var(--bg-surface-hover);
+  color: var(--text-secondary);
   font-family: var(--mono);
   font-size: 0.72rem;
 }
@@ -533,21 +544,21 @@ main {
   font-family: var(--mono);
   font-size: 0.86rem;
   line-height: 1.75;
-  color: var(--cyan);
+  color: var(--color-primary);
   white-space: pre-wrap;
   word-break: break-word;
 }
 
 .boot-ok {
-  color: var(--lime);
+  color: var(--color-accent);
   font-weight: 600;
-  text-shadow: 0 0 10px rgba(163, 230, 53, 0.75);
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.75);
 }
 
 .boot-cursor {
   display: inline-block;
   margin-left: 4px;
-  color: var(--lime);
+  color: var(--color-accent);
   font-weight: 600;
   animation: blink 1s step-end infinite;
 }
@@ -555,10 +566,10 @@ main {
 .terminal {
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--panel);
+  background: var(--bg-surface);
   box-shadow:
-    0 0 0 1px rgba(192, 132, 252, 0.08),
-    var(--glow-cyan);
+    0 0 0 1px rgba(124, 58, 237, 0.12),
+    var(--glow-primary);
   overflow: hidden;
 }
 
@@ -569,7 +580,7 @@ main {
   gap: 12px;
   padding: 12px 16px;
   border-bottom: 1px solid var(--line);
-  background: linear-gradient(90deg, rgba(34, 211, 238, 0.08), rgba(192, 132, 252, 0.08));
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.14), rgba(217, 70, 239, 0.1));
 }
 
 .traffic {
@@ -584,13 +595,13 @@ main {
 }
 
 .traffic span:nth-child(1) {
-  background: #fb7185;
+  background: var(--status-error);
 }
 .traffic span:nth-child(2) {
-  background: #fbbf24;
+  background: var(--status-warning);
 }
 .traffic span:nth-child(3) {
-  background: var(--lime);
+  background: var(--status-success);
 }
 
 .terminal-title,
@@ -602,11 +613,11 @@ main {
 }
 
 .terminal-title {
-  color: var(--muted);
+  color: var(--text-secondary);
 }
 
 .terminal-hint {
-  color: var(--purple);
+  color: var(--color-primary);
 }
 
 .chat-log {
@@ -628,6 +639,7 @@ main {
 
 .msg p {
   margin: 0;
+  color: var(--text-primary);
   font-family: var(--mono);
   font-size: 0.92rem;
   line-height: 1.65;
@@ -644,25 +656,25 @@ main {
 
 .msg-user {
   align-self: flex-end;
-  background: rgba(34, 211, 238, 0.08);
-  border-color: rgba(34, 211, 238, 0.45);
-  box-shadow: var(--glow-cyan);
+  background: rgba(124, 58, 237, 0.12);
+  border-color: rgba(124, 58, 237, 0.45);
+  box-shadow: var(--glow-primary);
 }
 
 .msg-user .msg-meta {
-  color: var(--cyan);
+  color: var(--color-primary);
   text-align: right;
 }
 
 .msg-agent {
   align-self: flex-start;
-  background: rgba(163, 230, 53, 0.06);
-  border-color: rgba(192, 132, 252, 0.4);
-  box-shadow: var(--glow-purple);
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(217, 70, 239, 0.4);
+  box-shadow: var(--glow-info);
 }
 
 .msg-agent .msg-meta {
-  color: var(--lime);
+  color: var(--color-accent);
 }
 
 .msg-typing {
@@ -681,8 +693,8 @@ main {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--lime);
-  box-shadow: 0 0 8px rgba(163, 230, 53, 0.55);
+  background: var(--color-accent);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.55);
   animation: typing-dot 1.1s ease-in-out infinite;
 }
 
@@ -701,11 +713,11 @@ main {
   min-height: 54px;
   padding: 12px 16px;
   border-top: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(34, 211, 238, 0.04), transparent);
+  background: linear-gradient(180deg, rgba(124, 58, 237, 0.08), transparent);
 }
 
 .prompt-sign {
-  color: var(--lime);
+  color: var(--color-accent);
   font-family: var(--mono);
   font-weight: 600;
 }
@@ -722,13 +734,13 @@ main {
 }
 
 #command-text {
-  color: var(--cyan);
+  color: var(--color-primary);
   white-space: pre-wrap;
   word-break: break-word;
 }
 
 #command-text.is-placeholder {
-  color: #64748b;
+  color: var(--text-secondary);
 }
 
 .caret {
@@ -736,8 +748,8 @@ main {
   width: 8px;
   height: 1.05em;
   margin-left: 3px;
-  background: var(--lime);
-  box-shadow: var(--glow-lime);
+  background: var(--color-accent);
+  box-shadow: var(--glow-accent);
   animation: blink 1s step-end infinite;
   flex-shrink: 0;
 }
@@ -759,10 +771,10 @@ main {
 
 .action-btn {
   padding: 8px 16px;
-  border: 1px solid rgba(34, 211, 238, 0.42);
+  border: 1px solid rgba(124, 58, 237, 0.42);
   border-radius: 50px;
-  background: rgba(7, 17, 31, 0.62);
-  color: var(--text);
+  background: var(--bg-surface);
+  color: var(--text-primary);
   font-family: var(--sans);
   font-size: 0.82rem;
   font-weight: 500;
@@ -774,10 +786,10 @@ main {
 
 .action-btn:hover,
 .action-btn:focus-visible {
-  color: var(--cyan);
-  background: rgba(34, 211, 238, 0.12);
-  border-color: var(--cyan);
-  box-shadow: var(--glow-cyan);
+  color: var(--text-primary);
+  background: var(--bg-surface-hover);
+  border-color: var(--color-primary-hover);
+  box-shadow: var(--glow-primary);
 }
 
 .zsh-section {
@@ -786,12 +798,12 @@ main {
 
 .zsh-window {
   overflow: hidden;
-  border: 1px solid rgba(34, 211, 238, 0.28);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: #050814;
+  background: var(--bg-surface);
   box-shadow:
-    0 0 0 1px rgba(34, 211, 238, 0.1),
-    0 0 28px rgba(34, 211, 238, 0.16);
+    0 0 0 1px rgba(124, 58, 237, 0.14),
+    var(--glow-primary);
 }
 
 .zsh-chrome {
@@ -800,7 +812,7 @@ main {
   gap: 12px;
   padding: 10px 16px;
   border-bottom: 1px solid var(--line);
-  background: #080d1a;
+  background: var(--bg-main);
 }
 
 .zsh-body {
@@ -816,7 +828,7 @@ main {
   padding: 16px 18px 8px;
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: #22d3ee #050814;
+  scrollbar-color: var(--color-primary) var(--bg-main);
 }
 
 .zsh-history::-webkit-scrollbar {
@@ -824,18 +836,18 @@ main {
 }
 
 .zsh-history::-webkit-scrollbar-track {
-  background: #050814;
+  background: var(--bg-main);
 }
 
 .zsh-history::-webkit-scrollbar-thumb {
   border-radius: 999px;
-  background: #22d3ee;
-  box-shadow: 0 0 8px rgba(34, 211, 238, 0.75);
+  background: var(--color-primary);
+  box-shadow: 0 0 8px rgba(124, 58, 237, 0.75);
 }
 
 .zsh-line {
   margin: 0 0 8px;
-  color: var(--text);
+  color: var(--text-primary);
   font-family: var(--mono);
   font-size: 0.9rem;
   line-height: 1.65;
@@ -843,23 +855,23 @@ main {
 }
 
 .zsh-welcome {
-  color: var(--lime);
+  color: var(--color-accent);
 }
 
 .zsh-hint {
-  color: var(--muted);
+  color: var(--text-secondary);
 }
 
 .zsh-cmd {
-  color: var(--cyan);
+  color: var(--color-primary);
 }
 
 .zsh-out {
-  color: #cbd5e1;
+  color: var(--text-primary);
 }
 
 .zsh-error {
-  color: #fb7185;
+  color: var(--status-error);
 }
 
 .zsh-input-line {
@@ -871,7 +883,7 @@ main {
 
 .zsh-prompt {
   flex-shrink: 0;
-  color: #38bdf8;
+  color: var(--status-info);
   font-family: var(--mono);
   font-size: 0.95rem;
   font-weight: 600;
@@ -883,8 +895,8 @@ main {
   padding: 0;
   border: 0;
   background: transparent;
-  color: var(--text);
-  caret-color: #38bdf8;
+  color: var(--text-primary);
+  caret-color: var(--color-accent);
   font-family: var(--mono);
   font-size: 0.9rem;
   line-height: 1.6;
@@ -892,7 +904,7 @@ main {
 }
 
 .zsh-input-line input::placeholder {
-  color: #475569;
+  color: var(--text-secondary);
 }
 
 .footer {
