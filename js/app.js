@@ -146,8 +146,16 @@ const BOOT_DOT_DELAY_MS = 380;
 function appendBootLine() {
   const line = document.createElement("p");
   line.className = "boot-line";
+
+  const prompt = document.createElement("span");
+  prompt.className = "boot-prompt";
+  prompt.textContent = "$ ";
+  prompt.setAttribute("aria-hidden", "true");
+
+  const body = document.createElement("span");
+  line.append(prompt, body);
   BOOT_ROOT.appendChild(line);
-  return line;
+  return { line, body };
 }
 
 async function typeInto(element, text) {
@@ -168,36 +176,36 @@ async function runBootSequence() {
   }
 
   const line1 = appendBootLine();
-  await typeInto(line1, "$ Initializing profile...");
+  await typeInto(line1.body, "Initializing profile...");
 
   await sleep(300);
   const line2 = appendBootLine();
-  await typeInto(line2, "$ Loading stack: Python, SQL, TypeScript, C#");
+  await typeInto(line2.body, "Loading stack: Python, SQL, TypeScript, C#");
 
   await sleep(300);
   const line3 = appendBootLine();
-  await typeInto(line3, "$ Connecting AI agents @ Aramis");
+  await typeInto(line3.body, "Connecting AI agents @ Aramis");
 
   for (let index = 0; index < 3; index += 1) {
     await sleep(prefersReducedMotion ? 0 : BOOT_DOT_DELAY_MS);
-    line3.textContent += ".";
+    line3.body.textContent += ".";
   }
 
   await sleep(prefersReducedMotion ? 0 : 500);
   const ok = document.createElement("span");
   ok.className = "boot-ok";
   ok.textContent = " OK";
-  line3.appendChild(ok);
+  line3.line.appendChild(ok);
 
   await sleep(300);
   const line4 = appendBootLine();
-  await typeInto(line4, "$ Hello, world! Bem-vinda ao meu terminal.");
+  await typeInto(line4.body, "Hello, world! Bem-vinda ao meu terminal.");
 
   const cursor = document.createElement("span");
   cursor.className = "boot-cursor";
   cursor.textContent = "█";
   cursor.setAttribute("aria-hidden", "true");
-  line4.appendChild(cursor);
+  line4.line.appendChild(cursor);
 }
 
 runBootSequence();
@@ -239,6 +247,11 @@ const SHELL_COMMANDS = {
 const zshHistory = document.getElementById("zsh-history");
 const zshInput = document.getElementById("zsh-input");
 const zshWindow = document.querySelector(".zsh-window");
+const zshBody = document.querySelector(".zsh-body");
+
+const ZSH_WELCOME_HTML =
+  '<p class="zsh-line zsh-welcome">bruna@portfolio:~$ sessão iniciada</p>' +
+  '<p class="zsh-line zsh-hint">digite "help" para ver os comandos disponíveis</p>';
 
 function appendZshLine(text, className) {
   const line = document.createElement("p");
@@ -248,7 +261,15 @@ function appendZshLine(text, className) {
 }
 
 function scrollZshToBottom() {
-  zshHistory.scrollTop = zshHistory.scrollHeight;
+  if (!zshBody) {
+    return;
+  }
+
+  zshBody.scrollTop = zshBody.scrollHeight;
+}
+
+function restoreZshWelcome() {
+  zshHistory.innerHTML = ZSH_WELCOME_HTML;
 }
 
 function runZshCommand(rawValue) {
@@ -256,11 +277,14 @@ function runZshCommand(rawValue) {
   zshInput.value = "";
 
   if (!command) {
+    zshInput.focus();
     return;
   }
 
   if (command === "clear") {
-    zshHistory.replaceChildren();
+    restoreZshWelcome();
+    zshInput.focus();
+    scrollZshToBottom();
     return;
   }
 
@@ -273,6 +297,7 @@ function runZshCommand(rawValue) {
     appendZshLine(`command not found: ${command}. Digite 'help'.`, "zsh-error");
   }
 
+  zshInput.focus();
   scrollZshToBottom();
 }
 
