@@ -1,16 +1,16 @@
 const RESPONSES = {
   "quem é você?":
-    "Sou estudante do 3º semestre de Análise e Desenvolvimento de Sistemas, em transição da área de operações financeiras para a tecnologia.",
+    "Cursando Análise e Desenvolvimento de Sistemas, em transição de carreira da área de operações financeiras para a engenharia de software e inteligência artificial.",
   "quais suas stacks?":
     "Trabalho com Python, SQL, TypeScript, C#, FastAPI, ASP.NET Core, Next.js e Supabase. Também utilizo ferramentas de IA e automação como Databricks, Groq, Claude, Make, n8n, Cursor, Leonardo.ai e Gamma.",
   "fale sobre seus projetos":
     "Destaco o Lúmen (2º lugar no WoHackathon na rede Solana focado em transparência de doações), o SatVantage (onboarding educacional com agentes IA) e o Tino (CRM integrado ao Supabase).",
-  "como é a experiência na aramis?":
-    "Atuo como estagiária de IA no time de Talentos e Transformação, desenvolvendo automações de processos e agentes de IA estruturados em Python e SQL.",
+  "qual seu foco atual?":
+    "Atualmente, meu foco é arquitetar agentes de IA e automações usando Python, SQL e TypeScript para transformar processos manuais e ineficientes em sistemas inteligentes, determinísticos e escaláveis.",
 };
 
 const FALLBACK =
-  "Comando não reconhecido. Você pode perguntar: 'Quem é você?', 'Quais suas stacks?', 'Fale sobre seus projetos' ou 'Como é a experiência na Aramis?'";
+  "Comando não reconhecido. Você pode perguntar: 'Quem é você?', 'Quais suas stacks?', 'Fale sobre seus projetos' ou 'Qual seu foco atual?'";
 
 const PLACEHOLDER = "Selecione um dos botões...";
 const TYPE_DELAY_MS = 42;
@@ -75,15 +75,18 @@ function appendTypingIndicator() {
   meta.className = "msg-meta";
   meta.textContent = "agente // typing";
 
-  const dots = document.createElement("div");
-  dots.className = "typing-dots";
-  dots.setAttribute("aria-hidden", "true");
+  const indicator = document.createElement("div");
+  indicator.className = "typing-indicator";
+  indicator.setAttribute("aria-hidden", "true");
 
   for (let index = 0; index < 3; index += 1) {
-    dots.appendChild(document.createElement("span"));
+    const dot = document.createElement("span");
+    dot.className = "dot";
+    dot.textContent = ".";
+    indicator.appendChild(dot);
   }
 
-  article.append(meta, dots);
+  article.append(meta, indicator);
   chatLog.appendChild(article);
   scrollChatToBottom();
   return article;
@@ -184,7 +187,7 @@ async function runBootSequence() {
 
   await sleep(300);
   const line3 = appendBootLine();
-  await typeInto(line3.body, "Connecting AI agents @ Aramis");
+  await typeInto(line3.body, "Connecting AI agents");
 
   for (let index = 0; index < 3; index += 1) {
     await sleep(prefersReducedMotion ? 0 : BOOT_DOT_DELAY_MS);
@@ -235,7 +238,9 @@ filterButtons.forEach((button) => {
 });
 
 const SHELL_COMMANDS = {
-  help: "comandos disponíveis:\n  curiosidades - o que faço fora do código\n  comunidades  - espaços que apoio e participo\n  contato      - minhas redes profissionais\n  clear        - limpa o terminal",
+  help: "comandos disponíveis:\n  whoami       - quem eu sou\n  curiosidades - o que faço fora do código\n  comunidades  - espaços que apoio e participo\n  contato      - minhas redes profissionais\n  clear        - limpa o terminal",
+  whoami:
+    "Bruna Nagai. Cursando Análise e Desenvolvimento de Sistemas. Desenvolvedora com foco em Automação e IA.",
   curiosidades:
     "Desplugando da IDE, sou fã de anime e mangá (One Piece é um dos favoritos, a determinação do Zoro inspira!). Também gosto muito de conhecer restaurantes, bares, cidades novas!",
   comunidades:
