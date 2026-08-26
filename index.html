@@ -132,26 +132,26 @@
         </header>
 
         <nav class="project-filters" aria-label="Filtro de projetos">
-          <button type="button" class="project-filter is-active" data-category="todos" aria-pressed="true">
+          <button type="button" class="filter-cmd active" data-filter="todos">
             &gt; cd /todos
           </button>
-          <button type="button" class="project-filter" data-category="web3" aria-pressed="false">
-            &gt; cd /web3
+          <button type="button" class="filter-cmd" data-filter="python">
+            &gt; cd /python
           </button>
-          <button type="button" class="project-filter" data-category="saas" aria-pressed="false">
-            &gt; cd /saas
+          <button type="button" class="filter-cmd" data-filter="typescript">
+            &gt; cd /typescript
           </button>
-          <button type="button" class="project-filter" data-category="educacao" aria-pressed="false">
-            &gt; cd /educacao
+          <button type="button" class="filter-cmd" data-filter="csharp">
+            &gt; cd /csharp
           </button>
-          <button type="button" class="project-filter" data-category="healthtech" aria-pressed="false">
-            &gt; cd /healthtech
+          <button type="button" class="filter-cmd" data-filter="ia">
+            &gt; cd /ia
           </button>
         </nav>
 
         <div class="projects-log-window">
-          <div class="projects-grid" data-filter="todos">
-          <article class="project-card" data-category="web3">
+          <div class="projects-grid">
+          <article class="project-card" data-stacks="typescript web3">
             <div class="project-card-body">
               <div class="project-card-head">
                 <h3>Lúmen</h3>
@@ -171,7 +171,7 @@
             </ul>
           </article>
 
-          <article class="project-card" data-category="saas">
+          <article class="project-card" data-stacks="typescript ia">
             <div class="project-card-body">
               <div class="project-card-head">
                 <h3>Tino</h3>
@@ -190,7 +190,7 @@
             </ul>
           </article>
 
-          <article class="project-card" data-category="saas">
+          <article class="project-card" data-stacks="typescript sql">
             <div class="project-card-body">
               <div class="project-card-head">
                 <h3>DeCasa OS</h3>
@@ -209,7 +209,7 @@
             </ul>
           </article>
 
-          <article class="project-card" data-category="educacao">
+          <article class="project-card" data-stacks="typescript ia">
             <div class="project-card-body">
               <div class="project-card-head">
                 <h3>SatVantage</h3>
@@ -228,7 +228,7 @@
             </ul>
           </article>
 
-          <article class="project-card" data-category="healthtech">
+          <article class="project-card" data-stacks="python sql ia">
             <div class="project-card-body">
               <div class="project-card-head">
                 <h3>Clínica Popular</h3>
@@ -247,7 +247,7 @@
             </ul>
           </article>
 
-          <article class="project-card" data-category="educacao">
+          <article class="project-card" data-stacks="csharp ia">
             <div class="project-card-body">
               <div class="project-card-head">
                 <h3>BuildXP</h3>

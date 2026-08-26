@@ -202,24 +202,26 @@ async function runBootSequence() {
 
 runBootSequence();
 
-const projectsGrid = document.querySelector(".projects-grid");
-const filterButtons = document.querySelectorAll(".project-filter");
-let activeFilter = document.querySelector(".project-filter.is-active");
+const filterButtons = document.querySelectorAll(".filter-cmd");
+const projectCards = document.querySelectorAll(".project-card");
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const category = button.dataset.category;
-    if (!projectsGrid || !category || button === activeFilter) {
-      return;
-    }
+    filterButtons.forEach((cmd) => {
+      cmd.classList.remove("active");
+    });
+    button.classList.add("active");
 
-    projectsGrid.dataset.filter = category;
+    const filter = button.dataset.filter;
 
-    activeFilter?.classList.remove("is-active");
-    activeFilter?.setAttribute("aria-pressed", "false");
+    projectCards.forEach((card) => {
+      if (filter === "todos") {
+        card.style.display = "flex";
+        return;
+      }
 
-    button.classList.add("is-active");
-    button.setAttribute("aria-pressed", "true");
-    activeFilter = button;
+      const stacks = card.dataset.stacks || "";
+      card.style.display = stacks.includes(filter) ? "flex" : "none";
+    });
   });
 });
