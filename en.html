@@ -109,7 +109,7 @@
               </div>
               <p class="terminal-title">boot.sequence</p>
             </div>
-            <div id="boot-sequence-container" class="boot-log" aria-live="polite"></div>
+            <div id="boot-sequence-container" class="boot-log" aria-hidden="true"></div>
           </aside>
         </div>
       </section>
@@ -141,7 +141,7 @@
               <p class="terminal-hint">O(1) lookup</p>
             </div>
 
-            <div id="chat-log" class="chat-log" role="log" aria-live="polite">
+            <div id="chat-log" class="chat-log" role="log" aria-live="off">
               <article class="msg msg-agent">
                 <p>
                   <span class="ai-prefix">ai&gt;</span>
@@ -151,7 +151,7 @@
               </article>
             </div>
 
-            <div class="command-bar" aria-live="polite">
+            <div class="command-bar">
               <span class="prompt-sign" aria-hidden="true">&gt;</span>
               <p class="command-display">
                 <span id="command-text" class="is-placeholder">Select one of the buttons...</span>
@@ -395,7 +395,7 @@
           </div>
 
           <div class="zsh-body">
-            <div id="zsh-history" class="zsh-history" role="log" aria-live="polite">
+            <div id="zsh-history" class="zsh-history" role="log" aria-live="off">
               <p class="zsh-line zsh-welcome">bruna@portfolio:~$ session started</p>
               <p class="zsh-line zsh-hint">type "help" to see available commands</p>
             </div>
@@ -453,6 +453,6 @@
       <p class="footer-note">static build // github pages // no api calls</p>
     </footer>
 
-    <script src="js/app.js?v=17"></script>
+    <script src="js/app.js?v=18"></script>
   </body>
 </html>

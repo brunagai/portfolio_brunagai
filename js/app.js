@@ -121,6 +121,23 @@ function scrollChatToBottom() {
   chatLog.scrollTop = chatLog.scrollHeight;
 }
 
+function setLiveRegion(container, announce) {
+  if (!container) {
+    return;
+  }
+
+  container.setAttribute("aria-live", announce ? "polite" : "off");
+}
+
+function appendToLog(container, node, announce) {
+  if (!container) {
+    return;
+  }
+
+  setLiveRegion(container, announce);
+  container.appendChild(node);
+}
+
 function setDisplay(text, isPlaceholder) {
   if (!commandText) {
     return;
@@ -136,7 +153,7 @@ function setButtonsDisabled(disabled) {
   });
 }
 
-function appendMessage(role, text) {
+function appendMessage(role, text, announce) {
   if (!chatLog) {
     return;
   }
@@ -152,7 +169,7 @@ function appendMessage(role, text) {
   body.textContent = text;
 
   article.append(meta, body);
-  chatLog.appendChild(article);
+  appendToLog(chatLog, article, announce);
   scrollChatToBottom();
 }
 
@@ -163,7 +180,7 @@ function appendTypingIndicator() {
 
   const article = document.createElement("article");
   article.className = "msg msg-agent msg-typing";
-  article.setAttribute("aria-label", I18N.typingLabel);
+  article.setAttribute("aria-hidden", "true");
 
   const meta = document.createElement("span");
   meta.className = "msg-meta";
@@ -181,6 +198,7 @@ function appendTypingIndicator() {
   }
 
   article.append(meta, indicator);
+  setLiveRegion(chatLog, false);
   chatLog.appendChild(article);
   scrollChatToBottom();
   return article;
@@ -215,7 +233,8 @@ async function playQuestion(question) {
   let typingBubble = null;
 
   try {
-    appendMessage("user", question);
+    setLiveRegion(chatLog, false);
+    appendMessage("user", question, false);
     typingBubble = appendTypingIndicator();
 
     await Promise.all([
@@ -226,12 +245,12 @@ async function playQuestion(question) {
     typingBubble?.remove();
     typingBubble = null;
     setDisplay(PLACEHOLDER, true);
-    appendMessage("agent", lookup(question));
+    appendMessage("agent", lookup(question), true);
   } catch {
     typingBubble?.remove();
     typingBubble = null;
     setDisplay(PLACEHOLDER, true);
-    appendMessage("agent", I18N.chatError);
+    appendMessage("agent", I18N.chatError, true);
   } finally {
     typingBubble?.remove();
     isBusy = false;
@@ -458,7 +477,7 @@ const zshInput = document.getElementById("zsh-input");
 const zshWindow = document.querySelector(".zsh-window");
 const zshBody = document.querySelector(".zsh-body");
 
-function appendZshLine(text, className) {
+function appendZshLine(text, className, announce = false) {
   if (!zshHistory) {
     return;
   }
@@ -466,7 +485,7 @@ function appendZshLine(text, className) {
   const line = document.createElement("p");
   line.className = `zsh-line ${className}`;
   line.textContent = text;
-  zshHistory.appendChild(line);
+  appendToLog(zshHistory, line, announce);
 }
 
 function scrollZshToBottom() {
@@ -483,8 +502,9 @@ function restoreZshWelcome() {
   }
 
   zshHistory.replaceChildren();
+  setLiveRegion(zshHistory, false);
   I18N.zshWelcome.forEach(({ text, className }) => {
-    appendZshLine(text, className);
+    appendZshLine(text, className, false);
   });
 }
 
@@ -507,13 +527,13 @@ function runZshCommand(rawValue) {
     return;
   }
 
-  appendZshLine(`> ${command}`, "zsh-cmd");
+  appendZshLine(`> ${command}`, "zsh-cmd", false);
 
   const reply = SHELL_COMMANDS[command];
   if (reply) {
-    appendZshLine(reply, "zsh-out");
+    appendZshLine(reply, "zsh-out", true);
   } else {
-    appendZshLine(I18N.zshUnknown(command), "zsh-error");
+    appendZshLine(I18N.zshUnknown(command), "zsh-error", true);
   }
 
   if (zshInput) {
