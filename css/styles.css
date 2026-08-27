@@ -582,8 +582,7 @@ main {
   transition: all 0.3s ease;
 }
 
-.project-card:hover,
-.project-card:focus-within {
+.project-card:hover {
   background: rgba(16, 185, 129, 0.08);
   border-color: var(--color-accent);
   box-shadow: var(--glow-accent);
@@ -605,6 +604,7 @@ main {
 .project-title-link {
   color: #FFFFFF;
   text-decoration: none;
+  cursor: pointer;
   transition: color 0.3s ease;
 }
 
@@ -637,8 +637,7 @@ main {
   transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, text-shadow 0.3s ease;
 }
 
-.project-card:hover .project-pill,
-.project-card:focus-within .project-pill {
+.project-card:hover .project-pill {
   color: var(--color-accent);
   border-color: var(--color-accent);
   background: rgba(16, 185, 129, 0.06);
@@ -696,7 +695,6 @@ button.project-action {
 }
 
 .project-card:hover .project-action,
-.project-card:focus-within .project-action,
 .project-action:hover,
 .project-action:focus-visible {
   color: var(--color-accent);
@@ -733,8 +731,7 @@ button.project-action {
   transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, text-shadow 0.3s ease;
 }
 
-.project-card:hover .project-tags li,
-.project-card:focus-within .project-tags li {
+.project-card:hover .project-tags li {
   color: var(--color-accent);
   border-color: var(--color-accent);
   background: rgba(16, 185, 129, 0.06);

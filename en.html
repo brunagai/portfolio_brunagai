@@ -57,7 +57,7 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css?v=55" />
+    <link rel="stylesheet" href="css/styles.css?v=57" />
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Skip to content</a>
@@ -211,9 +211,10 @@
                 <h3>
                   <a
                     class="project-title-link"
-                    href="https://github.com/brunagai/lumen"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#demo-modal"
+                    data-demo="lumen"
+                    aria-haspopup="dialog"
+                    aria-controls="demo-modal"
                   >Lúmen</a>
                 </h3>
                 <span class="project-pill">DONATIONS / SOLANA</span>
@@ -224,11 +225,21 @@
                 expense stays traceable, and the loop only closes with a fiscal invoice.
               </p>
             </div>
-            <ul class="project-tags">
-              <li>Solana</li>
-              <li>TypeScript</li>
-              <li>Next.js</li>
-            </ul>
+            <div class="project-card-foot">
+              <ul class="project-tags">
+                <li>Solana</li>
+                <li>TypeScript</li>
+                <li>Next.js</li>
+              </ul>
+              <nav class="project-actions" aria-label="Lúmen links">
+                <a
+                  class="project-action"
+                  href="https://github.com/brunagai/lumen"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >GitHub</a>
+              </nav>
+            </div>
           </article>
 
           <article class="project-card" data-stacks="repository,live preview">
@@ -237,9 +248,10 @@
                 <h3>
                   <a
                     class="project-title-link"
-                    href="https://github.com/brunagai/tino"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#demo-modal"
+                    data-demo="tino"
+                    aria-haspopup="dialog"
+                    aria-controls="demo-modal"
                   >Tino</a>
                 </h3>
                 <span class="project-pill">CRM / SAAS</span>
@@ -264,9 +276,6 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >GitHub</a>
-                <button type="button" class="project-action" data-demo="tino">
-                  View prototype
-                </button>
               </nav>
             </div>
           </article>
@@ -277,9 +286,10 @@
                 <h3>
                   <a
                     class="project-title-link"
-                    href="https://github.com/brunagai/decasa-os"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#demo-modal"
+                    data-demo="decasa-os"
+                    aria-haspopup="dialog"
+                    aria-controls="demo-modal"
                   >DeCasa OS</a>
                 </h3>
                 <span class="project-pill">SAAS / AI</span>
@@ -303,9 +313,6 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >GitHub</a>
-                <button type="button" class="project-action" data-demo="decasa-os">
-                  View prototype
-                </button>
               </nav>
             </div>
           </article>
@@ -511,6 +518,6 @@
       </div>
     </dialog>
 
-    <script src="js/app.js?v=26"></script>
+    <script src="js/app.js?v=27"></script>
   </body>
 </html>

@@ -733,13 +733,23 @@ function initDemoModal() {
   }
 
   document.addEventListener("click", (event) => {
+    if (event.target.closest("a.project-action")) {
+      return;
+    }
+
     const trigger = event.target.closest("[data-demo]");
     if (!trigger) {
       return;
     }
+
+    const galleryId = trigger.dataset.demo;
     event.preventDefault();
     event.stopPropagation();
-    openGallery(trigger.dataset.demo);
+    if (!DEMO_GALLERIES[galleryId]?.slides?.length) {
+      return;
+    }
+
+    openGallery(galleryId);
   });
 
   dialog.querySelector("[data-demo-prev]")?.addEventListener("click", () => goTo(index - 1));
