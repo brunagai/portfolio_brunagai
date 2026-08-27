@@ -617,7 +617,7 @@ const DEMO_GALLERIES = {
     title: IS_EN ? "Tino — visual prototype" : "Tino — protótipo visual",
     slides: [
       {
-        src: "images/tino/login.png",
+        src: "images/tino/login.png?v=2",
         caption: IS_EN ? "Login screen" : "Tela de Login",
       },
       {
