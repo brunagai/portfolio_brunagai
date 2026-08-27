@@ -883,6 +883,7 @@ function initEmailModal() {
   }
 
   function openEmailModal() {
+    markCopied(false);
     try {
       if (!dialog.open && typeof dialog.showModal === "function") {
         dialog.showModal();
@@ -892,7 +893,6 @@ function initEmailModal() {
     } catch {
       dialog.setAttribute("open", "");
     }
-    copyEmail();
   }
 
   function closeEmailModal() {
