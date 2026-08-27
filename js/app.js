@@ -765,7 +765,7 @@ function initDemoModal() {
   }
 
   document.addEventListener("click", (event) => {
-    if (event.target.closest("#demo-modal")) {
+    if (event.target.closest("#demo-modal, #email-modal")) {
       return;
     }
 
@@ -835,3 +835,82 @@ function initDemoModal() {
 }
 
 initDemoModal();
+
+const CONTACT_EMAIL = "brunanlorena@gmail.com";
+
+function initEmailModal() {
+  const dialog = document.getElementById("email-modal");
+  const trigger = document.getElementById("email-trigger");
+  const copyBtn = dialog?.querySelector("[data-email-copy]");
+  if (!dialog || !trigger || !copyBtn) {
+    return;
+  }
+
+  const idleLabel = copyBtn.dataset.labelIdle || copyBtn.textContent;
+  const doneLabel = copyBtn.dataset.labelDone || "Copiado!";
+  let copiedTimer = 0;
+
+  function markCopied(ok) {
+    window.clearTimeout(copiedTimer);
+    copyBtn.textContent = ok ? doneLabel : idleLabel;
+    copyBtn.classList.toggle("is-copied", ok);
+    if (ok) {
+      copiedTimer = window.setTimeout(() => {
+        copyBtn.textContent = idleLabel;
+        copyBtn.classList.remove("is-copied");
+      }, 2000);
+    }
+  }
+
+  async function copyEmail() {
+    try {
+      await navigator.clipboard.writeText(CONTACT_EMAIL);
+      markCopied(true);
+      return true;
+    } catch {
+      const field = document.createElement("textarea");
+      field.value = CONTACT_EMAIL;
+      field.setAttribute("readonly", "");
+      field.style.position = "fixed";
+      field.style.left = "-9999px";
+      document.body.append(field);
+      field.select();
+      const ok = document.execCommand("copy");
+      field.remove();
+      markCopied(ok);
+      return ok;
+    }
+  }
+
+  function openEmailModal() {
+    try {
+      if (!dialog.open && typeof dialog.showModal === "function") {
+        dialog.showModal();
+      } else if (!dialog.open) {
+        dialog.setAttribute("open", "");
+      }
+    } catch {
+      dialog.setAttribute("open", "");
+    }
+    copyEmail();
+  }
+
+  function closeEmailModal() {
+    if (typeof dialog.close === "function" && dialog.open) {
+      dialog.close();
+    } else {
+      dialog.removeAttribute("open");
+    }
+  }
+
+  trigger.addEventListener("click", openEmailModal);
+  copyBtn.addEventListener("click", copyEmail);
+  dialog.querySelector("[data-email-close]")?.addEventListener("click", closeEmailModal);
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) {
+      closeEmailModal();
+    }
+  });
+}
+
+initEmailModal();

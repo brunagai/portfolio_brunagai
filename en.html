@@ -57,7 +57,7 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css?v=65" />
+    <link rel="stylesheet" href="css/styles.css?v=66" />
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Skip to content</a>
@@ -450,10 +450,13 @@
           target="_blank"
           rel="noopener noreferrer"
         >LinkedIn</a>
-        <a
+        <button
+          type="button"
           class="social-link"
-          href="mailto:brunanlorena@gmail.com"
-        >Email</a>
+          id="email-trigger"
+          aria-haspopup="dialog"
+          aria-controls="email-modal"
+        >Email</button>
         <a
           class="social-link"
           href="https://wa.me/5592984366959"
@@ -489,6 +492,25 @@
       </div>
     </dialog>
 
-    <script src="js/app.js?v=33"></script>
+    <dialog class="demo-modal email-modal" id="email-modal" aria-labelledby="email-modal-title">
+      <div class="email-card">
+        <header class="demo-toolbar">
+          <h2 id="email-modal-title">Copy my email:</h2>
+          <button type="button" class="demo-modal-close" data-email-close>Close</button>
+        </header>
+        <div class="email-copy-row">
+          <p class="email-address" id="email-address">brunanlorena@gmail.com</p>
+          <button
+            type="button"
+            class="email-copy-btn"
+            data-email-copy
+            data-label-idle="Copy"
+            data-label-done="Copied!"
+          >Copy</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="js/app.js?v=34"></script>
   </body>
 </html>
