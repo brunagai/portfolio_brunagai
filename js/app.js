@@ -3,11 +3,11 @@ const IS_EN = document.documentElement.lang.toLowerCase().startsWith("en");
 const I18N_PT = {
   responses: {
     "quem é você?":
-      "Passei por uma transição de carreira da área de operações financeiras, curso Análise e Desenvolvimento de Sistemas e atuo com engenharia de software e inteligência artificial.",
+      "Focada em engenharia de software e inteligência artificial, meu dia a dia é criar automações, estruturar pipelines de dados e desenvolver agentes inteligentes de IA. Pode ser que me encontre em algum hackaton também...",
     "quais suas habilidades técnicas?":
-      "Trabalho com Python, SQL, TypeScript, C#, FastAPI, ASP.NET Core, Next.js e Supabase. Também utilizo ferramentas de IA e automação como Databricks, Groq, Claude, Gemini, Canva, Cursor, Notion e Gamma.",
+      "Trabalho principalmente com Python, SQL, TS, C#, FastAPI, ASP.NET Core, Next.js e Supabase. Também utilizo ferramentas de dados, IA e automação como Databricks,Groq, Claude, Gemini, Canva, Cursor, Notion e Gamma.",
     "quais seus diferenciais?":
-      "Tenho vivência prática construindo soluções sob pressão em hackathons, fui cofundadora de uma comunidade feminina de hardware e foco sempre em eficiência em conjunto com uma visão estratégica para negócios.",
+      "Embaixadora Estudantil Google 2026, construo soluções sob pressão em hackathons, fui cofundadora de uma comunidade feminina de hardware e foco sempre em eficiência, em conjunto com uma visão estratégica para negócios.",
     "por que te contratar?":
       "Sendo bem sincera: eu gosto de dinheiro... Mas eu também tenho automações eficientes, código limpo, muita curiosidade por resolver problemas reais! Dê uma olhada em meus projetos logo abaixo",
   },
@@ -30,7 +30,7 @@ const I18N_PT = {
     curiosidades:
       "Sou fã de anime (One Piece, Death Note e A Viagem de Chihiro que o digam). Também gosto de crochê e de conhecer restaurantes, bares e lugares novos!",
     comunidades:
-      "Apoio muito a diversidade na tecnologia e colaboro com comunidades femininas. Atuei como mentora de engenharia de prompt no Hack da Shiva. Hackathons estão sendo minha diversão nos últimos meses!",
+      "Apoio muito a diversidade na tecnologia e colaboro com comunidades femininas. Conheça Mulheres na Oracle, Wohackers, Programaria e mais no meu linkedin!",
     hire: "Quer trocar uma ideia sobre oportunidades? Meus contatos profissionais e redes estão logo abaixo do terminal!",
   },
   zshWelcome: [
@@ -47,11 +47,11 @@ const I18N_PT = {
 const I18N_EN = {
   responses: {
     "who are you?":
-      "I transitioned from financial operations into software. I study Systems Analysis and Development and work across software engineering and artificial intelligence.",
+      "Focused on software engineering and artificial intelligence, my day-to-day is creating automations, structuring data pipelines, and developing intelligent AI agents. You might also find me at a hackathon...",
     "what's your stack?":
-      "I work with Python, SQL, TypeScript, C#, FastAPI, ASP.NET Core, Next.js, and Supabase. I also use AI and automation tools such as Databricks, Groq, Claude, Gemini, Canva, Cursor, Notion, and Gamma.",
+      "I mainly work with Python, SQL, TS, C#, FastAPI, ASP.NET Core, Next.js, and Supabase. I also use data, AI, and automation tools such as Databricks, Groq, Claude, Gemini, Canva, Cursor, Notion, and Gamma.",
     "what sets you apart?":
-      "I have hands-on practice building solutions under pressure in hackathons, co-founded a women-in-hardware community, and always combine efficiency with a strategic eye for business.",
+      "Google Student Ambassador 2026, I build solutions under pressure in hackathons, co-founded a women-in-hardware community, and always focus on efficiency, together with a strategic eye for business.",
     "why hire you?":
       "I'll be honest: I like money... But I also ship efficient automations, clean code, and a lot of curiosity for real-world problems. Check out my projects below.",
   },
@@ -74,7 +74,7 @@ const I18N_EN = {
     hobbies:
       "I'm an anime fan (One Piece, Death Note, and Spirited Away, to name a few). I also love crochet and discovering new restaurants, bars, and places!",
     communities:
-      "I strongly support diversity in tech and often collaborate with women-in-tech communities. I mentored prompt engineering at Hack da Shiva. Hackathons have been my favorite playground these past months!",
+      "I strongly support diversity in tech and collaborate with women-in-tech communities. Check out Mulheres na Oracle, Wohackers, Programaria, and more on my LinkedIn!",
     hire: "Want to talk about opportunities? My professional contacts and socials are right below this terminal!",
   },
   zshWelcome: [
