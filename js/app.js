@@ -47,14 +47,13 @@ const I18N_PT = {
 const I18N_EN = {
   responses: {
     "who are you?":
-      "I'm Bruna, from Amazonas to São Paulo, working in Software Engineering and AI. I build automations that transform team routines and generate direct impact on results.",
-    "what's your stack?":
-      "Beyond the technical foundation (Python, C#, Next.js, FastAPI, and AI), I highlight my socio-emotional skills: emotional intelligence under pressure, empathy, and clear communication — the pieces that complete my foundation.",
-    "what sets you apart?":
-      "AI internship at Aramis, Google Student Ambassador 2026, and co-founder of a women's hardware community. Supervising financial operations and a call center gave me a business lens. I handle pressure and connect technical efficiency with the real needs of a retail company.",
-    "why hire you?":
-      "Because I will increase the effectiveness and agility of your operation. I don't look at technique alone — I analyze the metrics to automate what actually makes sense. I deliver fast, high-impact solutions!",
-  },
+  "I'm Bruna, from Amazonas to São Paulo, working in Software Engineering and AI. I build automations that transform team routines and generate direct impact on results.",
+"what's your stack?":
+  "Beyond the technical foundation (Python, C#, Next.js, FastAPI, and AI), I highlight other skills the market looks for: emotional intelligence under pressure, empathy, and clear communication — the pieces that complete my foundation.",
+"what sets you apart?":
+  "AI intern at Aramis, Google Student Ambassador 2026, and co-founder of a women's hardware community. My experience supervising financial operations and a call center brings a business lens. I handle pressure and connect technical efficiency with the real needs of a retail company.",
+"why hire you?":
+  "Because I will increase the effectiveness and agility of your operation. I don't look at technique alone — I analyze the metrics to automate what actually makes sense. AI for AI's sake is free in plenty of places; I deliver fast, high-impact solutions!",  },
   fallback:
     "Command not recognized. You can ask: 'Who are you?', 'What's your stack?', 'What sets you apart?', or 'Why hire you?'",
   placeholder: "Select one of the buttons...",
