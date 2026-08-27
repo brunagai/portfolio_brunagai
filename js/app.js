@@ -576,6 +576,31 @@ if (zshInput && zshHistory) {
 }
 
 const DEMO_GALLERIES = {
+  lumen: {
+    title: IS_EN ? "Lúmen — visual prototype" : "Lúmen — protótipo visual",
+    slides: [
+      {
+        src: "images/lumen/doacao.png",
+        caption: IS_EN ? "Donation screen" : "Tela de doação",
+      },
+      {
+        src: "images/lumen/pagamento.png",
+        caption: IS_EN ? "Payment method" : "Meio de pagamento",
+      },
+      {
+        src: "images/lumen/obrigado.png",
+        caption: IS_EN ? "Payment confirmation" : "Confirmação do Pagamento",
+      },
+      {
+        src: "images/lumen/transparencia.png",
+        caption: IS_EN ? "Transparency" : "Transparência",
+      },
+      {
+        src: "images/lumen/inserir-nf.png",
+        caption: IS_EN ? "Insert invoice" : "Inserir nota fiscal",
+      },
+    ],
+  },
   "decasa-os": {
     title: IS_EN ? "DeCasa OS — visual prototype" : "DeCasa OS — protótipo visual",
     slides: [
@@ -733,7 +758,7 @@ function initDemoModal() {
   }
 
   document.addEventListener("click", (event) => {
-    if (event.target.closest("a.project-action")) {
+    if (event.target.closest(".project-links a")) {
       return;
     }
 

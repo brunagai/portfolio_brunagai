@@ -578,8 +578,12 @@ main {
   background: transparent;
   box-shadow: none;
   color: #ffffff;
-  cursor: pointer;
+  cursor: default;
   transition: all 0.3s ease;
+}
+
+.project-card[data-demo] {
+  cursor: pointer;
 }
 
 .project-card:hover {
@@ -601,25 +605,23 @@ main {
   letter-spacing: -0.02em;
 }
 
-.project-title-link {
-  color: #FFFFFF;
-  text-decoration: none;
+.project-title-btn {
+  appearance: none;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: left;
   cursor: pointer;
-  transition: color 0.3s ease;
 }
 
-.project-title-link::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  border-radius: inherit;
-}
-
-.project-title-link:hover,
-.project-title-link:focus-visible {
-  color: var(--color-accent);
-  text-shadow: 0 0 6px rgba(16, 185, 129, 0.32);
+.project-title-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
 }
 
 .project-pill {
@@ -662,46 +664,40 @@ main {
 
 .project-card-foot {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
 }
 
-.project-actions {
-  position: relative;
-  z-index: 3;
+.project-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
+  margin-top: 15px;
 }
 
-.project-action {
+.project-links a {
   padding: 5px 10px;
   border: 1px solid var(--frame-border);
-  border-radius: 50px;
+  border-radius: 8px;
   background: transparent;
   color: #ffffff;
   font-family: var(--mono);
   font-size: 0.72rem;
+  letter-spacing: 0.04em;
   line-height: 1.2;
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, text-shadow 0.3s ease;
 }
 
-button.project-action {
-  appearance: none;
-}
-
-.project-card:hover .project-action,
-.project-action:hover,
-.project-action:focus-visible {
-  color: var(--color-accent);
-  border-color: var(--color-accent);
-  background: rgba(16, 185, 129, 0.06);
-  box-shadow: 0 0 8px rgba(16, 185, 129, 0.22);
-  text-shadow: 0 0 6px rgba(16, 185, 129, 0.28);
+.project-links a:hover,
+.project-links a:focus-visible {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background: rgba(217, 70, 239, 0.08);
+  box-shadow: var(--glow-info);
+  text-shadow: 0 0 6px rgba(217, 70, 239, 0.35);
 }
 
 .project-desc {
