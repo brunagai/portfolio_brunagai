@@ -57,7 +57,7 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css?v=47" />
+    <link rel="stylesheet" href="css/styles.css?v=55" />
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Skip to content</a>
@@ -244,7 +244,7 @@
                 </h3>
                 <span class="project-pill">CRM / SAAS</span>
               </div>
-              <p class="project-access">restricted access // authenticated demo</p>
+              <p class="project-access">restricted access // visual prototype</p>
               <p class="project-desc">
                 Sales assistant and CRM with a per-rep isolated pipeline and an AI multimodal
                 Practical Log: audio, photo, and text on Groq, with chained fallback and data on
@@ -264,12 +264,9 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >GitHub</a>
-                <a
-                  class="project-action"
-                  href="https://otino.vercel.app/login"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >Authenticated demo</a>
+                <button type="button" class="project-action" data-demo="tino">
+                  View prototype
+                </button>
               </nav>
             </div>
           </article>
@@ -287,7 +284,7 @@
                 </h3>
                 <span class="project-pill">SAAS / AI</span>
               </div>
-              <p class="project-access">restricted access // authenticated demo</p>
+              <p class="project-access">restricted access // visual prototype</p>
               <p class="project-desc">
                 Commercial operating system for DeCasa Esquadrias: WhatsApp becomes an AI-parsed
                 lead, lands on the Kanban, and triggers follow-up, quotes, and an executive dashboard.
@@ -306,12 +303,9 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >GitHub</a>
-                <a
-                  class="project-action"
-                  href="https://decasa-esquadria.vercel.app/login?callbackUrl=%2F"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >Authenticated demo</a>
+                <button type="button" class="project-action" data-demo="decasa-os">
+                  View prototype
+                </button>
               </nav>
             </div>
           </article>
@@ -493,6 +487,30 @@
       <p class="footer-note">static build // github pages // no api calls</p>
     </footer>
 
-    <script src="js/app.js?v=20"></script>
+    <dialog class="demo-modal" id="demo-modal" aria-labelledby="demo-modal-title">
+      <div class="demo-stage">
+        <figure class="demo-slide">
+          <header class="demo-toolbar">
+            <h2 id="demo-modal-title">DeCasa OS</h2>
+            <button type="button" class="demo-modal-close" data-demo-close>
+              Close
+            </button>
+          </header>
+          <img id="demo-slide-image" alt="" />
+          <figcaption id="demo-slide-caption"></figcaption>
+          <div class="demo-pager">
+            <button type="button" class="demo-nav demo-prev" data-demo-prev aria-label="Previous slide">
+              ‹
+            </button>
+            <div class="demo-dots" role="tablist" aria-label="Prototype slides"></div>
+            <button type="button" class="demo-nav demo-next" data-demo-next aria-label="Next slide">
+              ›
+            </button>
+          </div>
+        </figure>
+      </div>
+    </dialog>
+
+    <script src="js/app.js?v=25"></script>
   </body>
 </html>

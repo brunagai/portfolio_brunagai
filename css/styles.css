@@ -671,7 +671,7 @@ main {
 
 .project-actions {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -685,8 +685,14 @@ main {
   color: #ffffff;
   font-family: var(--mono);
   font-size: 0.72rem;
+  line-height: 1.2;
   text-decoration: none;
+  cursor: pointer;
   transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, text-shadow 0.3s ease;
+}
+
+button.project-action {
+  appearance: none;
 }
 
 .project-card:hover .project-action,
@@ -1245,6 +1251,161 @@ a.brand {
   margin-top: 24px;
 }
 
+.demo-modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 32px 20px;
+  overflow: auto;
+  border: 0;
+  background: rgba(11, 3, 8, 0.32);
+  color: var(--text-primary);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.demo-modal:not([open]) {
+  display: none;
+}
+
+.demo-modal::backdrop {
+  background: rgba(11, 3, 8, 0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.demo-stage {
+  position: relative;
+  z-index: 1;
+  width: min(960px, 100%);
+}
+
+.demo-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.demo-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.demo-toolbar h2 {
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+  text-transform: uppercase;
+}
+
+.demo-modal-close {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(11, 3, 8, 0.28);
+  color: #ffffff;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.demo-modal-close:hover,
+.demo-modal-close:focus-visible,
+.demo-nav:hover,
+.demo-nav:focus-visible {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  box-shadow: var(--glow-accent);
+}
+
+.demo-slide img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(960px, 90vw);
+  max-height: min(64vh, 680px);
+  border-radius: 12px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+}
+
+.demo-slide figcaption {
+  width: 100%;
+  margin-top: 14px;
+  color: #ffffff;
+  font-family: var(--mono);
+  font-size: 0.84rem;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45);
+}
+
+.demo-pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.demo-nav {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  background: rgba(11, 3, 8, 0.28);
+  color: #ffffff;
+  font-size: 1.45rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.demo-dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.demo-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.demo-dot[aria-selected="true"] {
+  background: #00ff66;
+  border-color: #00ff66;
+  box-shadow: 0 0 10px rgba(0, 255, 102, 0.45);
+}
+
 .social-link {
   display: inline-flex;
   align-items: center;
@@ -1381,6 +1542,18 @@ a.brand {
   .actions-grid {
     grid-template-columns: 1fr;
   }
+
+  .demo-modal {
+    padding: 16px 12px 24px;
+  }
+
+  .demo-slide img {
+    max-height: min(52vh, 480px);
+  }
+
+  .demo-toolbar h2 {
+    font-size: 0.68rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1406,7 +1579,9 @@ a.brand {
   .action-btn,
   .hero-btn,
   .project-card,
-  .filter-cmd {
+  .filter-cmd,
+  .demo-modal-close,
+  .demo-nav {
     transition: none;
   }
 }

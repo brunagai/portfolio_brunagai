@@ -574,3 +574,204 @@ if (zshInput && zshHistory) {
     zshInput.focus();
   });
 }
+
+const DEMO_GALLERIES = {
+  "decasa-os": {
+    title: IS_EN ? "DeCasa OS — visual prototype" : "DeCasa OS — protótipo visual",
+    slides: [
+      {
+        src: "images/decasa-os/login.png",
+        caption: IS_EN ? "Login screen" : "Tela de Login",
+      },
+      {
+        src: "images/decasa-os/fila-do-dia.png",
+        caption: IS_EN ? "Daily queue" : "Fila do dia",
+      },
+      {
+        src: "images/decasa-os/funil.png",
+        caption: IS_EN ? "Funnel" : "Funil",
+      },
+      {
+        src: "images/decasa-os/mensagens.png",
+        caption: IS_EN ? "Messages" : "Mensagens",
+      },
+      {
+        src: "images/decasa-os/relatorios.png",
+        caption: IS_EN ? "Reports" : "Relatórios",
+      },
+      {
+        src: "images/decasa-os/configuracoes.png",
+        caption: IS_EN ? "Settings" : "Configurações",
+      },
+      {
+        src: "images/decasa-os/novo-cliente.png",
+        caption: IS_EN ? "+ New client" : "+ Novo Cliente",
+      },
+      {
+        src: "images/decasa-os/catalogo.png",
+        caption: IS_EN ? "Catalog" : "Catálogo",
+      },
+    ],
+  },
+  tino: {
+    title: IS_EN ? "Tino — visual prototype" : "Tino — protótipo visual",
+    slides: [
+      {
+        src: "images/tino/login.png",
+        caption: IS_EN ? "Login screen" : "Tela de Login",
+      },
+      {
+        src: "images/tino/controle-clientes.png",
+        caption: IS_EN ? "Client control" : "Controle de Clientes",
+      },
+      {
+        src: "images/tino/funil.png",
+        caption: IS_EN ? "Funnel & deals" : "Funil & Negociações",
+      },
+      {
+        src: "images/tino/registro-pratico.png",
+        caption: IS_EN ? "Practical log" : "Registro Prático",
+      },
+      {
+        src: "images/tino/perfil.png",
+        caption: IS_EN ? "Profile" : "Perfil",
+      },
+      {
+        src: "images/tino/relatorios.png",
+        caption: IS_EN ? "Reports" : "Relatórios",
+      },
+    ],
+  },
+};
+
+function initDemoModal() {
+  const dialog = document.getElementById("demo-modal");
+  if (!dialog) {
+    return;
+  }
+
+  const title = document.getElementById("demo-modal-title");
+  const image = document.getElementById("demo-slide-image");
+  const caption = document.getElementById("demo-slide-caption");
+  const dotsRoot = dialog.querySelector(".demo-dots");
+
+  let slides = [];
+  let index = 0;
+  let touchStartX = 0;
+
+  function renderSlide() {
+    const slide = slides[index];
+    if (!slide || !image || !caption) {
+      return;
+    }
+
+    image.src = slide.src;
+    image.alt = slide.caption;
+    caption.textContent = slide.caption;
+
+    dotsRoot?.querySelectorAll(".demo-dot").forEach((dot, dotIndex) => {
+      dot.setAttribute("aria-selected", String(dotIndex === index));
+    });
+  }
+
+  function goTo(nextIndex) {
+    if (!slides.length) {
+      return;
+    }
+    index = (nextIndex + slides.length) % slides.length;
+    renderSlide();
+  }
+
+  function buildDots() {
+    if (!dotsRoot) {
+      return;
+    }
+    dotsRoot.replaceChildren();
+    slides.forEach((slide, slideIndex) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "demo-dot";
+      dot.setAttribute("role", "tab");
+      dot.setAttribute("aria-label", slide.caption);
+      dot.setAttribute("aria-selected", String(slideIndex === index));
+      dot.addEventListener("click", () => goTo(slideIndex));
+      dotsRoot.append(dot);
+    });
+  }
+
+  function openGallery(galleryId) {
+    const gallery = DEMO_GALLERIES[galleryId];
+    if (!gallery) {
+      return;
+    }
+
+    slides = gallery.slides;
+    index = 0;
+    if (title) {
+      title.textContent = gallery.title;
+    }
+    buildDots();
+    renderSlide();
+
+    try {
+      if (!dialog.open && typeof dialog.showModal === "function") {
+        dialog.showModal();
+      } else if (!dialog.open) {
+        dialog.setAttribute("open", "");
+      }
+    } catch {
+      dialog.setAttribute("open", "");
+    }
+  }
+
+  function closeGallery() {
+    if (typeof dialog.close === "function" && dialog.open) {
+      dialog.close();
+    } else {
+      dialog.removeAttribute("open");
+    }
+  }
+
+  document.addEventListener("click", (event) => {
+    const trigger = event.target.closest("[data-demo]");
+    if (!trigger) {
+      return;
+    }
+    event.preventDefault();
+    event.stopPropagation();
+    openGallery(trigger.dataset.demo);
+  });
+
+  dialog.querySelector("[data-demo-prev]")?.addEventListener("click", () => goTo(index - 1));
+  dialog.querySelector("[data-demo-next]")?.addEventListener("click", () => goTo(index + 1));
+  dialog.querySelector("[data-demo-close]")?.addEventListener("click", closeGallery);
+
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) {
+      closeGallery();
+    }
+  });
+
+  dialog.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      goTo(index - 1);
+    }
+    if (event.key === "ArrowRight") {
+      goTo(index + 1);
+    }
+  });
+
+  image?.addEventListener("touchstart", (event) => {
+    touchStartX = event.changedTouches[0]?.clientX || 0;
+  }, { passive: true });
+
+  image?.addEventListener("touchend", (event) => {
+    const delta = (event.changedTouches[0]?.clientX || 0) - touchStartX;
+    if (Math.abs(delta) < 40) {
+      return;
+    }
+    goTo(delta < 0 ? index + 1 : index - 1);
+  }, { passive: true });
+}
+
+initDemoModal();
