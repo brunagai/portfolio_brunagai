@@ -524,8 +524,8 @@ main {
 }
 
 .projects-log-window {
-  max-height: 460px;
-  overflow-y: auto;
+  max-height: none;
+  overflow: visible;
   padding: 14px 10px 16px 14px;
   border: 1px solid var(--frame-border);
   border-radius: 14px;
@@ -677,10 +677,10 @@ main {
 }
 
 .project-links a {
-  padding: 5px 10px;
-  border: 1px solid var(--frame-border);
+  padding: 6px 12px;
+  border: 1px solid rgba(217, 70, 239, 0.55);
   border-radius: 8px;
-  background: transparent;
+  background: rgba(217, 70, 239, 0.08);
   color: #ffffff;
   font-family: var(--mono);
   font-size: 0.72rem;
