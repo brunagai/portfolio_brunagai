@@ -735,6 +735,13 @@ function initDemoModal() {
     if (title) {
       title.textContent = gallery.title;
     }
+    if (image) {
+      image.removeAttribute("src");
+      image.alt = "";
+    }
+    if (caption) {
+      caption.textContent = "";
+    }
     buildDots();
     renderSlide();
 
@@ -758,24 +765,42 @@ function initDemoModal() {
   }
 
   document.addEventListener("click", (event) => {
-    if (event.target.closest(".project-links a")) {
+    if (event.target.closest("#demo-modal")) {
       return;
     }
 
-    const trigger = event.target.closest("[data-demo]");
-    if (!trigger) {
+    if (event.target.closest("a.project-card-link")) {
       return;
     }
 
-    const galleryId = trigger.dataset.demo;
-    event.preventDefault();
-    event.stopPropagation();
-    if (!DEMO_GALLERIES[galleryId]?.slides?.length) {
+    const card = event.target.closest(".project-card");
+    if (!card) {
       return;
     }
 
-    openGallery(galleryId);
+    activateProjectCard(card);
   });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") {
+      return;
+    }
+
+    const card = event.target.closest?.(".project-card");
+    if (!card || event.target !== card) {
+      return;
+    }
+
+    event.preventDefault();
+    activateProjectCard(card);
+  });
+
+  function activateProjectCard(card) {
+    const galleryId = card.dataset.demo;
+    if (galleryId && DEMO_GALLERIES[galleryId]?.slides?.length) {
+      openGallery(galleryId);
+    }
+  }
 
   dialog.querySelector("[data-demo-prev]")?.addEventListener("click", () => goTo(index - 1));
   dialog.querySelector("[data-demo-next]")?.addEventListener("click", () => goTo(index + 1));

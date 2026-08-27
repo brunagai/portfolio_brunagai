@@ -57,7 +57,7 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css?v=59" />
+    <link rel="stylesheet" href="css/styles.css?v=65" />
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -120,6 +120,8 @@
           </aside>
         </div>
       </section>
+
+      <hr class="section-divider" aria-hidden="true" />
 
       <section id="chat" class="about-section" aria-labelledby="about-title">
         <div class="about-body">
@@ -187,6 +189,8 @@
         </div>
       </section>
 
+      <hr class="section-divider" aria-hidden="true" />
+
       <section id="projetos" class="projects" aria-labelledby="projects-title">
         <header class="projects-header">
           <p class="projects-index">02</p>
@@ -211,14 +215,10 @@
 
         <div class="projects-log-window">
           <div class="projects-grid">
-          <article class="project-card" data-demo="lumen" data-stacks="galeria,repositorio">
+          <article class="project-card" data-demo="lumen" data-stacks="galeria" tabindex="0" aria-haspopup="dialog" aria-controls="demo-modal">
             <div class="project-card-body">
               <div class="project-card-head">
-                <h3>
-                  <button type="button" class="project-title-btn" aria-haspopup="dialog" aria-controls="demo-modal">
-                    Lúmen
-                  </button>
-                </h3>
+                <h3>Lúmen</h3>
                 <span class="project-pill">DOAÇÕES / SOLANA</span>
               </div>
               <p class="project-award">★ 2º lugar — WoHackathon</p>
@@ -234,25 +234,13 @@
                 <li>TypeScript</li>
                 <li>Next.js</li>
               </ul>
-              <div class="project-links">
-                <a
-                  class="link-github"
-                  href="https://github.com/brunagai/lumen"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >[ Código Fonte ]</a>
-              </div>
             </div>
           </article>
 
-          <article class="project-card" data-demo="tino" data-stacks="galeria,repositorio">
+          <article class="project-card" data-demo="tino" data-stacks="galeria" tabindex="0" aria-haspopup="dialog" aria-controls="demo-modal">
             <div class="project-card-body">
               <div class="project-card-head">
-                <h3>
-                  <button type="button" class="project-title-btn" aria-haspopup="dialog" aria-controls="demo-modal">
-                    Tino
-                  </button>
-                </h3>
+                <h3>Tino</h3>
                 <span class="project-pill">CRM / SAAS</span>
               </div>
               <p class="project-access">acesso restrito // protótipo visual</p>
@@ -268,25 +256,13 @@
                 <li>Supabase</li>
                 <li>Groq</li>
               </ul>
-              <div class="project-links">
-                <a
-                  class="link-github"
-                  href="https://github.com/brunagai/tino"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >[ Código Fonte ]</a>
-              </div>
             </div>
           </article>
 
-          <article class="project-card" data-demo="decasa-os" data-stacks="galeria,repositorio">
+          <article class="project-card" data-demo="decasa-os" data-stacks="galeria" tabindex="0" aria-haspopup="dialog" aria-controls="demo-modal">
             <div class="project-card-body">
               <div class="project-card-head">
-                <h3>
-                  <button type="button" class="project-title-btn" aria-haspopup="dialog" aria-controls="demo-modal">
-                    DeCasa OS
-                  </button>
-                </h3>
+                <h3>DeCasa OS</h3>
                 <span class="project-pill">SAAS / IA</span>
               </div>
               <p class="project-access">acesso restrito // protótipo visual</p>
@@ -302,18 +278,17 @@
                 <li>Prisma</li>
                 <li>PostgreSQL</li>
               </ul>
-              <div class="project-links">
-                <a
-                  class="link-github"
-                  href="https://github.com/brunagai/decasa-os"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >[ Código Fonte ]</a>
-              </div>
             </div>
           </article>
 
           <article class="project-card" data-stacks="producao">
+            <a
+              class="project-card-link"
+              href="https://sat-vantage-gislanesena.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Abrir SatVantage"
+            ></a>
             <div class="project-card-body">
               <div class="project-card-head">
                 <h3>SatVantage</h3>
@@ -331,18 +306,17 @@
                 <li>FastAPI</li>
                 <li>TypeScript</li>
               </ul>
-              <div class="project-links">
-                <a
-                  class="link-live"
-                  href="https://sat-vantage-gislanesena.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >[ Ver ao Vivo ]</a>
-              </div>
             </div>
           </article>
 
           <article class="project-card" data-stacks="repositorio">
+            <a
+              class="project-card-link"
+              href="https://github.com/brunagai/clinica-popular"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Abrir Clínica Popular no GitHub"
+            ></a>
             <div class="project-card-body">
               <div class="project-card-head">
                 <h3>Clínica Popular</h3>
@@ -360,18 +334,17 @@
                 <li>FastAPI</li>
                 <li>SQL</li>
               </ul>
-              <div class="project-links">
-                <a
-                  class="link-github"
-                  href="https://github.com/brunagai/clinica-popular"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >[ Código Fonte ]</a>
-              </div>
             </div>
           </article>
 
           <article class="project-card" data-stacks="producao">
+            <a
+              class="project-card-link"
+              href="https://www.buildxpdev.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Abrir BuildXP"
+            ></a>
             <div class="project-card-body">
               <div class="project-card-head">
                 <h3>BuildXP</h3>
@@ -389,18 +362,17 @@
                 <li>ASP.NET Core</li>
                 <li>Groq</li>
               </ul>
-              <div class="project-links">
-                <a
-                  class="link-live"
-                  href="https://www.buildxpdev.com.br/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >[ Ver ao Vivo ]</a>
-              </div>
             </div>
           </article>
 
           <article class="project-card" data-stacks="repositorio">
+            <a
+              class="project-card-link"
+              href="https://github.com/brunagai/api-validacao-fiscal"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Abrir Validação Fiscal no GitHub"
+            ></a>
             <div class="project-card-body">
               <div class="project-card-head">
                 <h3>Validação Fiscal</h3>
@@ -418,19 +390,13 @@
                 <li>FastAPI</li>
                 <li>Docker</li>
               </ul>
-              <div class="project-links">
-                <a
-                  class="link-github"
-                  href="https://github.com/brunagai/api-validacao-fiscal"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >[ Código Fonte ]</a>
-              </div>
             </div>
           </article>
           </div>
         </div>
       </section>
+
+      <hr class="section-divider" aria-hidden="true" />
 
       <section id="terminal-interativo" class="zsh-section" aria-labelledby="zsh-title">
         <header class="projects-header">
@@ -469,6 +435,8 @@
           </div>
         </div>
       </section>
+
+      <hr class="section-divider" aria-hidden="true" />
     </main>
 
     <footer id="contato" class="footer" aria-labelledby="contato-title">
@@ -530,6 +498,6 @@
       </div>
     </dialog>
 
-    <script src="js/app.js?v=30"></script>
+    <script src="js/app.js?v=33"></script>
   </body>
 </html>

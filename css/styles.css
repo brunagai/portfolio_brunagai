@@ -238,12 +238,22 @@ main {
   padding: 8px 20px 0;
 }
 
+.section-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(217, 70, 239, 0.4), transparent);
+  width: 80%;
+  margin: 0 auto;
+}
+
 .hero {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 48px;
-  margin-bottom: 44px;
+  margin-bottom: 0;
+  padding-top: 1.5rem;
+  padding-bottom: 5rem;
   text-align: left;
 }
 
@@ -415,7 +425,9 @@ main {
   flex-direction: column;
   align-items: stretch;
   gap: 0;
-  margin-bottom: 36px;
+  margin-bottom: 0;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .about-body {
@@ -452,7 +464,9 @@ main {
 }
 
 .projects {
-  margin: 12px 0 8px;
+  margin: 0;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .projects-header {
@@ -497,30 +511,20 @@ main {
   border: 1px solid var(--frame-border);
   border-radius: 8px;
   background: transparent;
-  color: #ffffff;
+  color: #FFFFFF;
   font-family: var(--mono);
   font-size: 0.84rem;
   cursor: pointer;
-  transition: box-shadow 160ms ease, border-color 160ms ease;
+  transition: all 0.3s ease;
 }
 
 .filter-cmd:hover,
-.filter-cmd:focus-visible {
-  color: #ffffff;
-  background: transparent;
-  border-color: var(--frame-border);
-  box-shadow:
-    0 0 10px rgba(139, 92, 246, 0.85),
-    0 0 22px rgba(139, 92, 246, 0.45);
-}
-
+.filter-cmd:focus-visible,
 .filter-cmd.active {
-  color: #ffffff;
+  color: var(--color-primary);
   background: transparent;
-  border-color: var(--frame-border);
-  box-shadow:
-    0 0 8px rgba(139, 92, 246, 0.7),
-    0 0 16px rgba(139, 92, 246, 0.35);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 10px rgba(217, 70, 239, 0.3);
 }
 
 .projects-log-window {
@@ -578,18 +582,26 @@ main {
   background: transparent;
   box-shadow: none;
   color: #ffffff;
-  cursor: default;
-  transition: all 0.3s ease;
-}
-
-.project-card[data-demo] {
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .project-card:hover {
   background: rgba(16, 185, 129, 0.08);
   border-color: var(--color-accent);
   box-shadow: var(--glow-accent);
+}
+
+.project-card:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.project-card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
 }
 
 .project-card-head {
@@ -603,25 +615,13 @@ main {
   margin: 0;
   font-size: 1.15rem;
   letter-spacing: -0.02em;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.project-title-btn {
-  appearance: none;
-  display: inline;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
-  color: inherit;
-  font: inherit;
-  letter-spacing: inherit;
-  text-align: left;
-  cursor: pointer;
-}
-
-.project-title-btn:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 3px;
+.project-card:hover h3 {
+  color: #059669;
 }
 
 .project-pill {
@@ -667,37 +667,6 @@ main {
   flex-direction: column;
   align-items: flex-start;
   gap: 0;
-}
-
-.project-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.project-links a {
-  padding: 6px 12px;
-  border: 1px solid rgba(217, 70, 239, 0.55);
-  border-radius: 8px;
-  background: rgba(217, 70, 239, 0.08);
-  color: #ffffff;
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, text-shadow 0.3s ease;
-}
-
-.project-links a:hover,
-.project-links a:focus-visible {
-  color: var(--color-primary);
-  border-color: var(--color-primary);
-  background: rgba(217, 70, 239, 0.08);
-  box-shadow: var(--glow-info);
-  text-shadow: 0 0 6px rgba(217, 70, 239, 0.35);
 }
 
 .project-desc {
@@ -1026,7 +995,9 @@ main {
 }
 
 .zsh-section {
-  margin: 48px 0 0;
+  margin: 0;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .zsh-window {
@@ -1163,8 +1134,9 @@ main {
   flex-direction: column;
   align-items: stretch;
   width: 100%;
-  margin-top: 4rem;
+  margin-top: 0;
   margin-bottom: 4rem;
+  padding-top: 5rem;
 }
 
 .footer-contact-section .projects-header {
@@ -1492,6 +1464,21 @@ a.brand {
 }
 
 @media (max-width: 720px) {
+  .hero {
+    padding-bottom: 3.5rem;
+  }
+
+  .about-section,
+  .projects,
+  .zsh-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .footer-contact-section {
+    padding-top: 3.5rem;
+  }
+
   .topbar {
     flex-direction: column;
     align-items: flex-start;
