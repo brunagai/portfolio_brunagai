@@ -51,7 +51,7 @@ const I18N_EN = {
 "what's your stack?":
   "Beyond the technical foundation (Python, C#, Next.js, FastAPI, and AI), I highlight other skills the market looks for: emotional intelligence under pressure, empathy, and clear communication — the pieces that complete my foundation.",
 "what sets you apart?":
-  "AI intern at Aramis, Google Student Ambassador 2026, and co-founder of a women's hardware community. My experience supervising financial operations and a call center brings a business lens. I handle pressure and connect technical efficiency with the real needs of a retail company.",
+  "AI intern at Aramis, Google Student Ambassador 2026, and co-founder of a women's hardware community. My experience supervising financial operations and a call center brings a business lens. I align technical efficiency with real business needs in retail.",
 "why hire you?":
   "Because I will increase the effectiveness and agility of your operation. I don't look at technique alone — I analyze the metrics to automate what actually makes sense. AI for AI's sake is free in plenty of places; I deliver fast, high-impact solutions!",  },
   fallback:
