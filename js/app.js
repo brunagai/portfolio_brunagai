@@ -7,7 +7,7 @@ const I18N_PT = {
     "quais suas habilidades técnicas?":
       "Além da base técnica (Python, C#, Next.js, FastAPI e IA), destaco outras habilidades bem procuradas no mercado: inteligência emocional sob pressão, empatia e comunicação clara, itens que completam a minha base.",
     "quais seus diferenciais?":
-      "Estagiária de IA na Aramis, Embaixadora Estudantil da Google 2026 e fui Cofundadora de uma comunidade feminina de Hardware. Minha experiência em Supervisão de operações financeiras e call center traz visão de negócio. Sei lidar com a pressão e unir a eficiência técnica com as necessidades reais da empresa no varejo.",
+      "Estagiária de IA na Aramis, Embaixadora Estudantil da Google 2026 e fui Cofundadora de uma comunidade feminina de Hardware. Minha experiência em Supervisão de operações financeiras e call center traz visão de negócio. Unifico a eficiência técnica com as necessidades reais da empresa no varejo.",
     "por que te contratar?":
       "Porque eu vou aumentar a efetividade e a agilidade da sua operação. Não olho apenas a técnica, analiso os indicadores para automatizar o que faz sentido. IA por IA tem grátis em vários lugares, eu entrego soluções ágeis e de impacto!",
   },
