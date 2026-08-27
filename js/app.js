@@ -3,7 +3,7 @@ const IS_EN = document.documentElement.lang.toLowerCase().startsWith("en");
 const I18N_PT = {
   responses: {
     "quem é você?":
-      "Focada em engenharia de software e inteligência artificial, meu dia a dia é criar automações, estruturar pipelines de dados e desenvolver agentes inteligentes de IA. Pode ser que me encontre em algum hackaton também...",
+      "Sou a Bruna, do Norte para SP, hoje trabalho com Engenharia de Software e IA, meu propósito é criar automações que transformem a rotina das equipes e gerem impactos diretos nos resultados.",
     "quais suas habilidades técnicas?":
       "Trabalho principalmente com Python, SQL, TS, C#, FastAPI, ASP.NET Core, Next.js e Supabase. Também utilizo ferramentas de dados, IA e automação como Databricks,Groq, Claude, Gemini, Canva, Cursor, Notion e Gamma.",
     "quais seus diferenciais?":
