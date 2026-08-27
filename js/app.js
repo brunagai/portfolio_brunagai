@@ -3,13 +3,13 @@ const IS_EN = document.documentElement.lang.toLowerCase().startsWith("en");
 const I18N_PT = {
   responses: {
     "quem é você?":
-      "Sou a Bruna, do Amazonas para São Paulo, atuando com Engenharia de Software e IA. Crio automações que transformem a rotina das equipes e gerem impactos diretos nos resultados.",
+      "Sou a Bruna, do Amazonas para São Paulo, atuando com Engenharia de Software e IA. Crio automações que transformem a rotina das equipes e gerem impactos direto nos resultados.",
     "quais suas habilidades técnicas?":
-      "Além da base técnica (Python, C#, Next.js, FastAPI e IA), destaco minhas habilidades socioemocionais: inteligência emocional sob pressão, empatia e comunicação clara, itens que completam a minha base.",
+      "Além da base técnica (Python, C#, Next.js, FastAPI e IA), destaco outras habilidades bem procuradas no mercado: inteligência emocional sob pressão, empatia e comunicação clara, itens que completam a minha base.",
     "quais seus diferenciais?":
-      "Estágia de IA na Aramis, Embaixadora Estudantil da Google 2026 e fui Cofundadora de uma comunidade feminina de Hardware. Minha experiência em Supervisão de operações financeiras e call center traz visão de negócio. Sei lidar com a pressão e unir a eficiência técnica com as necessidades reais da empresa no varejo.",
+      "Estagiária de IA na Aramis, Embaixadora Estudantil da Google 2026 e fui Cofundadora de uma comunidade feminina de Hardware. Minha experiência em Supervisão de operações financeiras e call center traz visão de negócio. Sei lidar com a pressão e unir a eficiência técnica com as necessidades reais da empresa no varejo.",
     "por que te contratar?":
-      "Porque eu vou aumentar a efetividade e a agilidade da sua operação. Não olho apenas a técnica, analiso os indicadores para automatizar o que faz sentido. Prometo soluções ágeis e de impacto!",
+      "Porque eu vou aumentar a efetividade e a agilidade da sua operação. Não olho apenas a técnica, analiso os indicadores para automatizar o que faz sentido. IA por IA tem grátis em vários lugares, eu entrego soluções ágeis e de impacto!",
   },
   fallback:
     "Comando não reconhecido. Você pode perguntar: 'Quem é você?', 'Quais suas habilidades técnicas?', 'Quais seus diferenciais?' ou 'Por que te contratar?'",
