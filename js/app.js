@@ -3,13 +3,13 @@ const IS_EN = document.documentElement.lang.toLowerCase().startsWith("en");
 const I18N_PT = {
   responses: {
     "quem é você?":
-      "Sou a Bruna, do Norte para SP, hoje trabalho com Engenharia de Software e IA, meu propósito é criar automações que transformem a rotina das equipes e gerem impactos diretos nos resultados.",
+      "Sou a Bruna, do Amazonas para São Paulo, atuando com Engenharia de Software e IA. Crio automações que transformem a rotina das equipes e gerem impactos diretos nos resultados.",
     "quais suas habilidades técnicas?":
-      "Trabalho principalmente com Python, SQL, TS, C#, FastAPI, ASP.NET Core, Next.js e Supabase. Também utilizo ferramentas de dados, IA e automação como Databricks,Groq, Claude, Gemini, Canva, Cursor, Notion e Gamma.",
+      "Além da base técnica (Python, C#, Next.js, FastAPI e IA), destaco minhas habilidades socioemocionais: inteligência emocional sob pressão, empatia e comunicação clara, itens que completam a minha base.",
     "quais seus diferenciais?":
-      "Embaixadora Estudantil Google 2026, construo soluções sob pressão em hackathons, fui cofundadora de uma comunidade feminina de hardware e foco sempre em eficiência, em conjunto com uma visão estratégica para negócios.",
+      "Estágia de IA na Aramis, Embaixadora Estudantil da Google 2026 e fui Cofundadora de uma comunidade feminina de Hardware. Minha experiência em Supervisão de operações financeiras e call center traz visão de negócio. Sei lidar com a pressão e unir a eficiência técnica com as necessidades reais da empresa no varejo.",
     "por que te contratar?":
-      "Sendo bem sincera: eu gosto de dinheiro... Mas eu também tenho automações eficientes, código limpo, muita curiosidade por resolver problemas reais! Dê uma olhada em meus projetos logo abaixo",
+      "Porque eu vou aumentar a efetividade e a agilidade da sua operação. Não olho apenas a técnica, analiso os indicadores para automatizar o que faz sentido. Prometo soluções ágeis e de impacto!",
   },
   fallback:
     "Comando não reconhecido. Você pode perguntar: 'Quem é você?', 'Quais suas habilidades técnicas?', 'Quais seus diferenciais?' ou 'Por que te contratar?'",
@@ -47,13 +47,13 @@ const I18N_PT = {
 const I18N_EN = {
   responses: {
     "who are you?":
-      "Focused on software engineering and artificial intelligence, my day-to-day is creating automations, structuring data pipelines, and developing intelligent AI agents. You might also find me at a hackathon...",
+      "I'm Bruna, from Amazonas to São Paulo, working in Software Engineering and AI. I build automations that transform team routines and generate direct impact on results.",
     "what's your stack?":
-      "I mainly work with Python, SQL, TS, C#, FastAPI, ASP.NET Core, Next.js, and Supabase. I also use data, AI, and automation tools such as Databricks, Groq, Claude, Gemini, Canva, Cursor, Notion, and Gamma.",
+      "Beyond the technical foundation (Python, C#, Next.js, FastAPI, and AI), I highlight my socio-emotional skills: emotional intelligence under pressure, empathy, and clear communication — the pieces that complete my foundation.",
     "what sets you apart?":
-      "Google Student Ambassador 2026, I build solutions under pressure in hackathons, co-founded a women-in-hardware community, and always focus on efficiency, together with a strategic eye for business.",
+      "AI internship at Aramis, Google Student Ambassador 2026, and co-founder of a women's hardware community. Supervising financial operations and a call center gave me a business lens. I handle pressure and connect technical efficiency with the real needs of a retail company.",
     "why hire you?":
-      "I'll be honest: I like money... But I also ship efficient automations, clean code, and a lot of curiosity for real-world problems. Check out my projects below.",
+      "Because I will increase the effectiveness and agility of your operation. I don't look at technique alone — I analyze the metrics to automate what actually makes sense. I deliver fast, high-impact solutions!",
   },
   fallback:
     "Command not recognized. You can ask: 'Who are you?', 'What's your stack?', 'What sets you apart?', or 'Why hire you?'",
