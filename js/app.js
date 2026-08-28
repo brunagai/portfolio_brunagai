@@ -2,13 +2,13 @@ const IS_EN = document.documentElement.lang.toLowerCase().startsWith("en");
 
 const I18N_PT = {
   responses: {
-    "quem é Bruna Nagai?":
+    "quem é bruna nagai?":
       "Do Amazonas a SP, com 13 anos de Japão. Da Zootecnia e finanças à IA na Aramis. Premiada em hackathon e movida pela escuta ativa, transformo essas vivências em aprendizagem contínua e visão de negócio para criar sistemas e automações de alto valor.",
     "quais suas habilidades técnicas?":
       "Além da base técnica sólida em Python, C#, Next.js, FastAPI, Supabase e IA, domino a capacidade de resolver problemas sob pressão, unindo pensamento analítico, inteligência emocional e uma comunicação clara para construir produtos eficientes.",
     "quais seus diferenciais?":
       "Embaixadora Google 2026, já fui cofundadora da Connect Byte (+400 mulheres alcançadas) e fui pódio no WoHackathon. Aplico IA estrategicamente na Aramis. Vou muito além do código: foco nos processos, combinando maturidade com uma alta taxa de entrega no varejo.",
-    "por que deveria contratar a Bruna Nagai?":
+    "por que deveria contratar a bruna nagai?":
       "Porque eu vou aumentar a efetividade e a agilidade da sua operação unindo código eficiente e competências humanas. Não olho apenas para a técnica: analiso indicadores com foco estratégico, mantenho o equilíbrio e a escuta ativa sob pressão, e sei trabalhar em equipe para criar soluções reais e de alto impacto!",
   },
   fallback:
@@ -54,16 +54,13 @@ const I18N_PT = {
 
 const I18N_EN = {
   responses: {
-"who are Bruna Nagai?":
+    "who are bruna nagai?":
       "From the Amazon to SP, with 13 years in Japan. From Animal Science and finance to AI at Aramis. Awarded in hackathons and driven by active listening, I turn this background into continuous learning and business vision to create high-value systems and automation.",
-      
-    "what are your technical skills?":
+    "what's your stack?":
       "Beyond a solid technical base in Python, C#, Next.js, FastAPI, Supabase, and AI, I master the ability to solve problems under pressure, uniting analytical thinking, emotional intelligence, and clear communication to build highly efficient products.",
-      
     "what sets you apart?":
       "2026 Google Ambassador, co-founder of Connect Byte (+400 women reached) and WoHackathon podium. I apply AI strategically at Aramis. I go far beyond the code: I focus on core processes, combining maturity with a high delivery rate in the retail sector.",
-      
-    "why should I hire Bruna Nagai?":
+    "why should i hire bruna nagai?":
       "Because I will boost the effectiveness and agility of your operation by uniting efficient code and human skills. I don't just look at the technical side: I analyze metrics with strategic focus, maintain balance and active listening under pressure, and work seamlessly in teams to build real, high-impact solutions!"  },
   fallback:
     "Command not recognized. You can ask: 'Who are Bruna Nagai?', 'What's your stack?', 'What sets you apart?', or 'why should I hire Bruna Nagai?'",
@@ -105,7 +102,16 @@ const I18N_EN = {
 
 const I18N = IS_EN ? I18N_EN : I18N_PT;
 
-const RESPONSES = I18N.responses;
+function normalizeQuestion(question) {
+  return question.trim().toLowerCase();
+}
+
+const RESPONSES = Object.fromEntries(
+  Object.entries(I18N.responses).map(([key, value]) => [
+    normalizeQuestion(key),
+    value,
+  ]),
+);
 const FALLBACK = I18N.fallback;
 const PLACEHOLDER = I18N.placeholder;
 const TYPE_DELAY_MS = 42;
@@ -122,7 +128,7 @@ const prefersReducedMotion = window.matchMedia(
 let isBusy = false;
 
 function lookup(question) {
-  return RESPONSES[question.trim().toLowerCase()] ?? FALLBACK;
+  return RESPONSES[normalizeQuestion(question)] ?? FALLBACK;
 }
 
 function sleep(ms) {
