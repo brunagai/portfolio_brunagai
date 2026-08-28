@@ -8,11 +8,11 @@ const I18N_PT = {
       "Além da base técnica sólida em Python, C#, Next.js, FastAPI, Supabase e IA, domino a capacidade de resolver problemas sob pressão, unindo pensamento analítico, inteligência emocional e uma comunicação clara para construir produtos eficientes.",
     "quais seus diferenciais?":
       "Embaixadora Google 2026, já fui cofundadora da Connect Byte (+400 mulheres alcançadas) e fui pódio no WoHackathon. Aplico IA estrategicamente na Aramis. Vou muito além do código: foco nos processos, combinando maturidade com uma alta taxa de entrega no varejo.",
-    "por que deveria a Bruna Nagai?":
+    "por que deveria contratar a Bruna Nagai?":
       "Porque eu vou aumentar a efetividade e a agilidade da sua operação unindo código eficiente e competências humanas. Não olho apenas para a técnica: analiso indicadores com foco estratégico, mantenho o equilíbrio e a escuta ativa sob pressão, e sei trabalhar em equipe para criar soluções reais e de alto impacto!",
   },
   fallback:
-    "Comando não reconhecido. Você pode perguntar: 'quem é Bruna Nagai?', 'Quais suas habilidades técnicas?', 'Quais seus diferenciais?' ou 'por que deveria a Bruna Nagai?'",
+    "Comando não reconhecido. Você pode perguntar: 'quem é Bruna Nagai?', 'Quais suas habilidades técnicas?', 'Quais seus diferenciais?' ou 'por que deveria contratar a Bruna Nagai?'",
   placeholder: "Selecione um dos botões...",
   userMeta: "você // input",
   agentMeta: "agente // reply",
