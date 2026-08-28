@@ -2,17 +2,17 @@ const IS_EN = document.documentElement.lang.toLowerCase().startsWith("en");
 
 const I18N_PT = {
   responses: {
-    "quem é você?":
+    "quem é Bruna Nagai?":
       "Do Amazonas a SP, com 13 anos de Japão. Da Zootecnia e finanças à IA na Aramis. Premiada em hackathon e movida pela escuta ativa, transformo essas vivências em aprendizagem contínua e visão de negócio para criar sistemas e automações de alto valor.",
     "quais suas habilidades técnicas?":
       "Além da base técnica sólida em Python, C#, Next.js, FastAPI, Supabase e IA, domino a capacidade de resolver problemas sob pressão, unindo pensamento analítico, inteligência emocional e uma comunicação clara para construir produtos eficientes.",
     "quais seus diferenciais?":
       "Embaixadora Google 2026, já fui cofundadora da Connect Byte (+400 mulheres alcançadas) e fui pódio no WoHackathon. Aplico IA estrategicamente na Aramis. Vou muito além do código: foco nos processos, combinando maturidade com uma alta taxa de entrega no varejo.",
-    "por que te contratar?":
+    "por que deveria a Bruna Nagai?":
       "Porque eu vou aumentar a efetividade e a agilidade da sua operação unindo código eficiente e competências humanas. Não olho apenas para a técnica: analiso indicadores com foco estratégico, mantenho o equilíbrio e a escuta ativa sob pressão, e sei trabalhar em equipe para criar soluções reais e de alto impacto!",
   },
   fallback:
-    "Comando não reconhecido. Você pode perguntar: 'Quem é você?', 'Quais suas habilidades técnicas?', 'Quais seus diferenciais?' ou 'Por que te contratar?'",
+    "Comando não reconhecido. Você pode perguntar: 'quem é Bruna Nagai?', 'Quais suas habilidades técnicas?', 'Quais seus diferenciais?' ou 'por que deveria a Bruna Nagai?'",
   placeholder: "Selecione um dos botões...",
   userMeta: "você // input",
   agentMeta: "agente // reply",
@@ -54,7 +54,7 @@ const I18N_PT = {
 
 const I18N_EN = {
   responses: {
-"who are you?":
+"who are Bruna Nagai?":
       "From the Amazon to SP, with 13 years in Japan. From Animal Science and finance to AI at Aramis. Awarded in hackathons and driven by active listening, I turn this background into continuous learning and business vision to create high-value systems and automation.",
       
     "what are your technical skills?":
@@ -63,10 +63,10 @@ const I18N_EN = {
     "what sets you apart?":
       "2026 Google Ambassador, co-founder of Connect Byte (+400 women reached) and WoHackathon podium. I apply AI strategically at Aramis. I go far beyond the code: I focus on core processes, combining maturity with a high delivery rate in the retail sector.",
       
-    "why hire you?":
+    "why should I hire Bruna Nagai?":
       "Because I will boost the effectiveness and agility of your operation by uniting efficient code and human skills. I don't just look at the technical side: I analyze metrics with strategic focus, maintain balance and active listening under pressure, and work seamlessly in teams to build real, high-impact solutions!"  },
   fallback:
-    "Command not recognized. You can ask: 'Who are you?', 'What's your stack?', 'What sets you apart?', or 'Why hire you?'",
+    "Command not recognized. You can ask: 'Who are Bruna Nagai?', 'What's your stack?', 'What sets you apart?', or 'why should I hire Bruna Nagai?'",
   placeholder: "Select one of the buttons...",
   userMeta: "you // input",
   agentMeta: "agent // reply",
