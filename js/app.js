@@ -3,13 +3,13 @@ const IS_EN = document.documentElement.lang.toLowerCase().startsWith("en");
 const I18N_PT = {
   responses: {
     "quem é você?":
-      "Sou a Bruna, do Amazonas para São Paulo, atuando com Engenharia de Software e IA. Crio automações que transformem a rotina das equipes e gerem impactos direto nos resultados.",
+      "Do Amazonas a SP, com 13 anos de Japão. Da Zootecnia e finanças à IA na Aramis. Premiada em hackathon e movida pela escuta ativa, transformo essas vivências em aprendizagem contínua e visão de negócio para criar sistemas e automações de alto valor.",
     "quais suas habilidades técnicas?":
-      "Além da base técnica (Python, C#, Next.js, FastAPI e IA), destaco outras habilidades bem procuradas no mercado: inteligência emocional sob pressão, empatia e comunicação clara, itens que completam a minha base.",
+      "Além da base técnica sólida em Python, C#, Next.js, FastAPI, Supabase e IA, domino a capacidade de resolver problemas sob pressão, unindo pensamento analítico, inteligência emocional e uma comunicação clara para construir produtos eficientes.",
     "quais seus diferenciais?":
-      "Estagiária de IA na Aramis, Embaixadora Estudantil da Google 2026 e fui Cofundadora de uma comunidade feminina de Hardware. Minha experiência em Supervisão de operações financeiras e call center traz visão de negócio. Unifico a eficiência técnica com as necessidades reais da empresa no varejo.",
+      "Embaixadora Google 2026, já fui cofundadora da Connect Byte (+400 mulheres alcançadas) e fui pódio no WoHackathon. Aplico IA estrategicamente na Aramis. Vou muito além do código: foco nos processos, combinando maturidade com uma alta taxa de entrega no varejo.",
     "por que te contratar?":
-      "Porque eu vou aumentar a efetividade e a agilidade da sua operação. Não olho apenas a técnica, analiso os indicadores para automatizar o que faz sentido. IA por IA tem grátis em vários lugares, eu entrego soluções ágeis e de impacto!",
+      "Porque eu vou aumentar a efetividade e a agilidade da sua operação unindo código eficiente e competências humanas. Não olho apenas para a técnica: analiso indicadores com foco estratégico, mantenho o equilíbrio e a escuta ativa sob pressão, e sei trabalhar em equipe para criar soluções reais e de alto impacto!",
   },
   fallback:
     "Comando não reconhecido. Você pode perguntar: 'Quem é você?', 'Quais suas habilidades técnicas?', 'Quais seus diferenciais?' ou 'Por que te contratar?'",
@@ -24,7 +24,14 @@ const I18N_PT = {
     "Olá, mundo!",
   ],
   shell: {
-    help: "comandos disponíveis:\n  whoami       - quem eu sou\n  curiosidades - o que faço fora do código\n  comunidades  - espaços que apoio e participo\n  hire         - como me contatar\n  clear        - limpa o terminal",
+    helpIntro: "Tudo pronto! Digite um dos comandos abaixo e aperte [ENTER]:",
+    helpItems: [
+      ["whoami", "quem eu sou"],
+      ["curiosidades", "o que faço fora do código"],
+      ["comunidades", "espaços que apoio e participo"],
+      ["hire", "como me contatar"],
+      ["clear", "limpa o terminal"],
+    ],
     whoami:
       "Bruna Nagai, criada em Hamamatsu e em Manaus, apaixonada por tecnologia e inovação.",
     curiosidades:
@@ -33,6 +40,7 @@ const I18N_PT = {
       "Apoio muito a diversidade na tecnologia e colaboro com comunidades femininas. Conheça Mulheres na Oracle, Wohackers, Programaria e mais no meu linkedin!",
     hire: "Quer trocar uma ideia sobre oportunidades? Meus contatos profissionais e redes estão logo abaixo do terminal!",
   },
+  zshPlaceholder: "digite um comando aqui...",
   zshWelcome: [
     { text: "bruna@portfolio:~$ sessão iniciada", className: "zsh-welcome" },
     {
@@ -46,14 +54,17 @@ const I18N_PT = {
 
 const I18N_EN = {
   responses: {
-    "who are you?":
-  "I'm Bruna, from Amazonas to São Paulo, working in Software Engineering and AI. I build automations that transform team routines and generate direct impact on results.",
-"what's your stack?":
-  "Beyond the technical foundation (Python, C#, Next.js, FastAPI, and AI), I highlight other skills the market looks for: emotional intelligence under pressure, empathy, and clear communication — the pieces that complete my foundation.",
-"what sets you apart?":
-  "AI intern at Aramis, Google Student Ambassador 2026, and co-founder of a women's hardware community. My experience supervising financial operations and a call center brings a business lens. I align technical efficiency with real business needs in retail.",
-"why hire you?":
-  "Because I will increase the effectiveness and agility of your operation. I don't look at technique alone — I analyze the metrics to automate what actually makes sense. AI for AI's sake is free in plenty of places; I deliver fast, high-impact solutions!",  },
+"who are you?":
+      "From the Amazon to SP, with 13 years in Japan. From Animal Science and finance to AI at Aramis. Awarded in hackathons and driven by active listening, I turn this background into continuous learning and business vision to create high-value systems and automation.",
+      
+    "what are your technical skills?":
+      "Beyond a solid technical base in Python, C#, Next.js, FastAPI, Supabase, and AI, I master the ability to solve problems under pressure, uniting analytical thinking, emotional intelligence, and clear communication to build highly efficient products.",
+      
+    "what sets you apart?":
+      "2026 Google Ambassador, co-founder of Connect Byte (+400 women reached) and WoHackathon podium. I apply AI strategically at Aramis. I go far beyond the code: I focus on core processes, combining maturity with a high delivery rate in the retail sector.",
+      
+    "why hire you?":
+      "Because I will boost the effectiveness and agility of your operation by uniting efficient code and human skills. I don't just look at the technical side: I analyze metrics with strategic focus, maintain balance and active listening under pressure, and work seamlessly in teams to build real, high-impact solutions!"  },
   fallback:
     "Command not recognized. You can ask: 'Who are you?', 'What's your stack?', 'What sets you apart?', or 'Why hire you?'",
   placeholder: "Select one of the buttons...",
@@ -67,7 +78,14 @@ const I18N_EN = {
     "Hello, world!",
   ],
   shell: {
-    help: "available commands:\n  whoami      - who I am\n  hobbies     - what I do away from the keyboard\n  communities - spaces I support and take part in\n  hire        - how to reach me\n  clear       - clear the terminal",
+    helpIntro: "All set! Type one of the commands below and press [ENTER]:",
+    helpItems: [
+      ["whoami", "who I am"],
+      ["hobbies", "what I do away from the keyboard"],
+      ["communities", "spaces I support and take part in"],
+      ["hire", "how to reach me"],
+      ["clear", "clear the terminal"],
+    ],
     whoami:
       "Bruna Nagai, raised in Hamamatsu and Manaus, passionate about technology and innovation.",
     hobbies:
@@ -76,6 +94,7 @@ const I18N_EN = {
       "I strongly support diversity in tech and collaborate with women-in-tech communities. Check out Mulheres na Oracle, Wohackers, Programaria, and more on my LinkedIn!",
     hire: "Want to talk about opportunities? My professional contacts and socials are right below this terminal!",
   },
+  zshPlaceholder: "type a command here...",
   zshWelcome: [
     { text: "bruna@portfolio:~$ session started", className: "zsh-welcome" },
     { text: 'type "help" to see available commands', className: "zsh-hint" },
@@ -480,8 +499,10 @@ const SHELL_EASTER_EGGS_EN = {
 
 const SHELL_EASTER_EGGS = IS_EN ? SHELL_EASTER_EGGS_EN : SHELL_EASTER_EGGS_PT;
 
+const { helpIntro, helpItems, ...shellAnswers } = I18N.shell;
+
 const SHELL_COMMANDS = {
-  ...I18N.shell,
+  ...shellAnswers,
   ...SHELL_EASTER_EGGS,
   curiosidades: I18N.shell.curiosidades || I18N.shell.hobbies,
   hobbies: I18N.shell.hobbies || I18N.shell.curiosidades,
@@ -525,6 +546,45 @@ function restoreZshWelcome() {
   });
 }
 
+function renderZshHelp() {
+  const intro = document.createElement("p");
+  intro.className = "zsh-line zsh-out";
+  intro.textContent = helpIntro;
+  appendToLog(zshHistory, intro, true);
+
+  helpItems.forEach(([cmd, desc]) => {
+    const row = document.createElement("div");
+    row.className = "zsh-line zsh-help-row";
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "zsh-help-cmd";
+    button.dataset.zshCommand = cmd;
+    button.setAttribute(
+      "aria-label",
+      IS_EN ? `Run command ${cmd}` : `Executar comando ${cmd}`,
+    );
+
+    const prompt = document.createElement("span");
+    prompt.className = "zsh-help-prompt";
+    prompt.setAttribute("aria-hidden", "true");
+    prompt.textContent = ">";
+
+    const name = document.createElement("span");
+    name.className = "zsh-help-name";
+    name.textContent = cmd;
+
+    button.append(prompt, name);
+
+    const detail = document.createElement("span");
+    detail.className = "zsh-help-desc";
+    detail.textContent = `- ${desc}`;
+
+    row.append(button, detail);
+    appendToLog(zshHistory, row, false);
+  });
+}
+
 function runZshCommand(rawValue) {
   const command = rawValue.toLowerCase().trim().slice(0, ZSH_MAX_COMMAND_LENGTH);
 
@@ -546,11 +606,15 @@ function runZshCommand(rawValue) {
 
   appendZshLine(`> ${command}`, "zsh-cmd", false);
 
-  const reply = SHELL_COMMANDS[command];
-  if (reply) {
-    appendZshLine(reply, "zsh-out", true);
+  if (command === "help") {
+    renderZshHelp();
   } else {
-    appendZshLine(I18N.zshUnknown(command), "zsh-error", true);
+    const reply = SHELL_COMMANDS[command];
+    if (reply) {
+      appendZshLine(reply, "zsh-out", true);
+    } else {
+      appendZshLine(I18N.zshUnknown(command), "zsh-error", true);
+    }
   }
 
   if (zshInput) {
@@ -560,6 +624,8 @@ function runZshCommand(rawValue) {
 }
 
 if (zshInput && zshHistory) {
+  zshInput.placeholder = I18N.zshPlaceholder;
+
   zshInput.addEventListener("keydown", (event) => {
     if (event.key !== "Enter") {
       return;
@@ -569,7 +635,22 @@ if (zshInput && zshHistory) {
     runZshCommand(zshInput.value);
   });
 
-  zshWindow?.addEventListener("click", () => {
+  zshHistory.addEventListener("click", (event) => {
+    const trigger = event.target.closest("[data-zsh-command]");
+    if (!trigger) {
+      return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+    runZshCommand(trigger.dataset.zshCommand);
+  });
+
+  zshWindow?.addEventListener("click", (event) => {
+    if (event.target.closest("[data-zsh-command]")) {
+      return;
+    }
+
     zshInput.focus();
   });
 }

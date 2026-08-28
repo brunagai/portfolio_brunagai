@@ -1120,6 +1120,51 @@ main {
   color: var(--status-error);
 }
 
+.zsh-help-row {
+  display: grid;
+  grid-template-columns: minmax(13.5ch, max-content) minmax(0, 1fr);
+  column-gap: 0.85rem;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.zsh-help-cmd {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45em;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-accent);
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+.zsh-help-prompt {
+  font-weight: 600;
+}
+
+.zsh-help-cmd:hover,
+.zsh-help-cmd:focus-visible {
+  color: #34d399;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.zsh-help-cmd:focus-visible {
+  outline: 1px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.zsh-help-desc {
+  color: var(--text-primary);
+  opacity: 0.82;
+}
+
 .zsh-input-line {
   display: flex;
   align-items: center;
@@ -1151,7 +1196,8 @@ main {
 }
 
 .zsh-input-line input::placeholder {
-  color: var(--text-secondary);
+  color: rgba(243, 240, 255, 0.38);
+  opacity: 1;
 }
 
 .footer {
@@ -1591,6 +1637,11 @@ button.social-link {
   .zsh-section {
     padding-top: 3.5rem;
     padding-bottom: 3.5rem;
+  }
+
+  .zsh-help-row {
+    grid-template-columns: 1fr;
+    row-gap: 0;
   }
 
   .footer-contact-section {

@@ -57,7 +57,7 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css?v=80" />
+    <link rel="stylesheet" href="css/styles.css?v=81" />
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -124,67 +124,67 @@
 
       <section id="chat" class="about-section" aria-labelledby="about-title">
         <div class="about-body">
-        <div class="about-copy">
-          <header class="projects-header about-header">
-            <p class="projects-index">01</p>
-            <h2 id="about-title">Sobre mim</h2>
-            <p class="projects-comment">// executing: fetch_profile.sh</p>
-          </header>
-          <p>
-            Desenvolvedora de software com foco em criar soluções através de
-            automações e IA.
-          </p>
-          <p>
-            Odeia ler textos longos? Eu também. Por isso, estruturei este
-            terminal de acesso rápido. Selecione uma pergunta e conheça minha
-            stack e histórico em tempo real.
-          </p>
-        </div>
+          <div class="about-copy">
+            <header class="projects-header about-header">
+              <p class="projects-index">01</p>
+              <h2 id="about-title">Sobre mim</h2>
+              <p class="projects-comment">// executing: fetch_profile.sh</p>
+            </header>
+            <p>
+              Desenvolvedora de software com foco em criar soluções através de
+              automações e IA.
+            </p>
+            <p>
+              Odeia ler textos longos? Eu também. Por isso, estruturei este
+              terminal de acesso rápido. Selecione uma pergunta e conheça minha
+              stack e histórico em tempo real.
+            </p>
+          </div>
 
-        <div class="about-chat">
-          <div class="terminal" role="region" aria-label="Interface de chat">
-            <div class="terminal-chrome">
-              <div class="traffic" aria-hidden="true">
-                <span></span><span></span><span></span>
+          <div class="about-chat">
+            <div class="terminal" role="region" aria-label="Interface de chat">
+              <div class="terminal-chrome">
+                <div class="traffic" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <p class="terminal-title">root@brunagai:~ ./chat --interativo</p>
+                <p class="terminal-hint">O(1) lookup</p>
               </div>
-              <p class="terminal-title">root@brunagai:~ ./chat --interativo</p>
-              <p class="terminal-hint">O(1) lookup</p>
-            </div>
 
-            <div id="chat-log" class="chat-log" role="log" aria-live="off">
-              <article class="msg msg-agent">
-                <p>
-                  <span class="ai-prefix">ai&gt;</span>
-                  Inicialização concluída. Olá! Sou o terminal interativo da Bruna.
-                  Selecione um dos comandos abaixo e eu trago a resposta na hora.
+              <div id="chat-log" class="chat-log" role="log" aria-live="off">
+                <article class="msg msg-agent">
+                  <p>
+                    <span class="ai-prefix">ai&gt;</span>
+                    Inicialização concluída. Olá! Sou o terminal interativo da Bruna.
+                    Selecione um dos comandos abaixo e eu trago a resposta na hora.
+                  </p>
+                </article>
+              </div>
+
+              <div class="command-bar">
+                <span class="prompt-sign" aria-hidden="true">&gt;</span>
+                <p class="command-display">
+                  <span id="command-text" class="is-placeholder">Selecione um dos botões...</span>
+                  <span class="caret" aria-hidden="true"></span>
                 </p>
-              </article>
-            </div>
+              </div>
 
-            <div class="command-bar">
-              <span class="prompt-sign" aria-hidden="true">&gt;</span>
-              <p class="command-display">
-                <span id="command-text" class="is-placeholder">Selecione um dos botões...</span>
-                <span class="caret" aria-hidden="true"></span>
-              </p>
-            </div>
-
-            <div id="quick-actions" class="actions-grid" aria-label="Atalhos rápidos">
-              <button type="button" class="action-btn" data-question="Quem é você?">
-                Quem é você?
-              </button>
-              <button type="button" class="action-btn" data-question="Quais suas habilidades técnicas?">
-                Quais suas habilidades técnicas?
-              </button>
-              <button type="button" class="action-btn" data-question="Quais seus diferenciais?">
-                Quais seus diferenciais?
-              </button>
-              <button type="button" class="action-btn" data-question="Por que te contratar?">
-                Por que te contratar?
-              </button>
+              <div id="quick-actions" class="actions-grid" aria-label="Atalhos rápidos">
+                <button type="button" class="action-btn" data-question="Quem é você?">
+                  Quem é você?
+                </button>
+                <button type="button" class="action-btn" data-question="Quais suas habilidades técnicas?">
+                  Quais suas habilidades técnicas?
+                </button>
+                <button type="button" class="action-btn" data-question="Quais seus diferenciais?">
+                  Quais seus diferenciais?
+                </button>
+                <button type="button" class="action-btn" data-question="Por que te contratar?">
+                  Por que te contratar?
+                </button>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </section>
 
@@ -433,6 +433,7 @@
                 autocorrect="off"
                 spellcheck="false"
                 maxlength="80"
+                placeholder="digite um comando aqui..."
                 aria-label="Digite um comando"
               />
             </div>
@@ -524,6 +525,6 @@
       </div>
     </dialog>
 
-    <script src="js/app.js?v=41"></script>
+    <script src="js/app.js?v=42"></script>
   </body>
 </html>

@@ -57,7 +57,7 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css?v=80" />
+    <link rel="stylesheet" href="css/styles.css?v=81" />
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Skip to content</a>
@@ -123,65 +123,65 @@
 
       <section id="chat" class="about-section" aria-labelledby="about-title">
         <div class="about-body">
-        <div class="about-copy">
-          <header class="projects-header about-header">
-            <p class="projects-index">01</p>
-            <h2 id="about-title">About me</h2>
-            <p class="projects-comment">// executing: fetch_profile.sh</p>
-          </header>
-          <p>
-            Software Developer focused on creating solutions through automation and AI.
-          </p>
-          <p>
-            Hate reading long texts? Same here. That's why I built this quick-access terminal.
-            Pick a question and get my stack and background in real time.
-          </p>
-        </div>
+          <div class="about-copy">
+            <header class="projects-header about-header">
+              <p class="projects-index">01</p>
+              <h2 id="about-title">About me</h2>
+              <p class="projects-comment">// executing: fetch_profile.sh</p>
+            </header>
+            <p>
+              Software Developer focused on creating solutions through automation and AI.
+            </p>
+            <p>
+              Hate reading long texts? Same here. That's why I built this quick-access terminal.
+              Pick a question and get my stack and background in real time.
+            </p>
+          </div>
 
-        <div class="about-chat">
-          <div class="terminal" role="region" aria-label="Chat interface">
-            <div class="terminal-chrome">
-              <div class="traffic" aria-hidden="true">
-                <span></span><span></span><span></span>
+          <div class="about-chat">
+            <div class="terminal" role="region" aria-label="Chat interface">
+              <div class="terminal-chrome">
+                <div class="traffic" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <p class="terminal-title">root@brunagai:~ ./chat --interactive</p>
+                <p class="terminal-hint">O(1) lookup</p>
               </div>
-              <p class="terminal-title">root@brunagai:~ ./chat --interactive</p>
-              <p class="terminal-hint">O(1) lookup</p>
-            </div>
 
-            <div id="chat-log" class="chat-log" role="log" aria-live="off">
-              <article class="msg msg-agent">
-                <p>
-                  <span class="ai-prefix">ai&gt;</span>
-                  Boot complete. Hi! I'm Bruna's interactive terminal.
-                  Select one of the commands below and I'll reply instantly.
+              <div id="chat-log" class="chat-log" role="log" aria-live="off">
+                <article class="msg msg-agent">
+                  <p>
+                    <span class="ai-prefix">ai&gt;</span>
+                    Boot complete. Hi! I'm Bruna's interactive terminal.
+                    Select one of the commands below and I'll reply instantly.
+                  </p>
+                </article>
+              </div>
+
+              <div class="command-bar">
+                <span class="prompt-sign" aria-hidden="true">&gt;</span>
+                <p class="command-display">
+                  <span id="command-text" class="is-placeholder">Select one of the buttons...</span>
+                  <span class="caret" aria-hidden="true"></span>
                 </p>
-              </article>
-            </div>
+              </div>
 
-            <div class="command-bar">
-              <span class="prompt-sign" aria-hidden="true">&gt;</span>
-              <p class="command-display">
-                <span id="command-text" class="is-placeholder">Select one of the buttons...</span>
-                <span class="caret" aria-hidden="true"></span>
-              </p>
-            </div>
-
-            <div id="quick-actions" class="actions-grid" aria-label="Quick shortcuts">
-              <button type="button" class="action-btn" data-question="Who are you?">
-                Who are you?
-              </button>
-              <button type="button" class="action-btn" data-question="What's your stack?">
-                What's your stack?
-              </button>
-              <button type="button" class="action-btn" data-question="What sets you apart?">
-                What sets you apart?
-              </button>
-              <button type="button" class="action-btn" data-question="Why hire you?">
-                Why hire you?
-              </button>
+              <div id="quick-actions" class="actions-grid" aria-label="Quick shortcuts">
+                <button type="button" class="action-btn" data-question="Who are you?">
+                  Who are you?
+                </button>
+                <button type="button" class="action-btn" data-question="What's your stack?">
+                  What's your stack?
+                </button>
+                <button type="button" class="action-btn" data-question="What sets you apart?">
+                  What sets you apart?
+                </button>
+                <button type="button" class="action-btn" data-question="Why hire you?">
+                  Why hire you?
+                </button>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </section>
 
@@ -421,6 +421,7 @@
                 autocorrect="off"
                 spellcheck="false"
                 maxlength="80"
+                placeholder="type a command here..."
                 aria-label="Type a command"
               />
             </div>
@@ -512,6 +513,6 @@
       </div>
     </dialog>
 
-    <script src="js/app.js?v=41"></script>
+    <script src="js/app.js?v=42"></script>
   </body>
 </html>
